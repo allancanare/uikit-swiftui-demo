@@ -1,0 +1,7 @@
+platform :ios, '15.0'
+
+target 'UIKitSwiftUIDemo' do
+  use_frameworks!
+
+  pod 'R.swift'
+end
