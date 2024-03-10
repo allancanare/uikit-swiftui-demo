@@ -30,7 +30,11 @@ final class UIKitScreenViewModel {
     @Published private var infoPublished = "UIKit UILabel"
     @Published private var titlePublished = "SwiftUI Text"
     
-    private let swiftUIWithViewModelViewModel = SwiftUIWithViewModelViewModel()
+    private lazy var swiftUIWithViewModelViewModel = {
+        let viewModel = SwiftUIWithViewModelViewModel()
+        viewModel.delegate = self
+        return viewModel
+    }()
 }
 
 extension UIKitScreenViewModel: UIKitScreenViewModelInput {
@@ -53,5 +57,10 @@ extension UIKitScreenViewModel: UIKitScreenViewModelOutput {
     
     var viewWithViewModelViewModel: SwiftUIWithViewModelViewModel {
         return swiftUIWithViewModelViewModel
+    }
+}
+extension UIKitScreenViewModel: SwiftUIWithViewModelViewModelDelegate {
+    func swiftUIWithViewModelViewModelDidTapButton() {
+        print("UIKitScreenViewModel - viewWithViewModelTapHandler")
     }
 }

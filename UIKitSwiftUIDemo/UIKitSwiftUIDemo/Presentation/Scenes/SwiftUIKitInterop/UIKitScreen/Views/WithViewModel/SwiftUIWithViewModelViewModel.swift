@@ -38,6 +38,5 @@ extension SwiftUIWithViewModelViewModel: SwiftUIWithViewModelViewModelProtocol {
     func didTapButton() {
         tapCount += 1
         delegate?.swiftUIWithViewModelViewModelDidTapButton()
-        print("SwiftUIWithViewModelViewModel - viewWithViewModelTapHandler")
     }
 }
