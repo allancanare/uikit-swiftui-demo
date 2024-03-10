@@ -20,6 +20,10 @@
 		9DB07CD82B9C31C5003B6B45 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB07CD72B9C31C5003B6B45 /* HomeCoordinator.swift */; };
 		9DB07CDB2B9C33B7003B6B45 /* HomeSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB07CDA2B9C33B7003B6B45 /* HomeSelectionView.swift */; };
 		9DB07CE22B9CA6BD003B6B45 /* FrameworkSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB07CE12B9CA6BD003B6B45 /* FrameworkSelectionView.swift */; };
+		9DB07CE72B9D82DC003B6B45 /* SwiftUIWithoutViewModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB07CE62B9D82DC003B6B45 /* SwiftUIWithoutViewModelView.swift */; };
+		9DB07CEB2B9D8D02003B6B45 /* SwiftUIWithViewModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB07CEA2B9D8D02003B6B45 /* SwiftUIWithViewModelView.swift */; };
+		9DB07CED2B9D8D0E003B6B45 /* SwiftUIWithViewModelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB07CEC2B9D8D0E003B6B45 /* SwiftUIWithViewModelViewModel.swift */; };
+		9DB07CF02B9D9539003B6B45 /* UIViewController+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB07CEF2B9D9539003B6B45 /* UIViewController+Extras.swift */; };
 		9DBBBA3A2B5EB6F100B70628 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBBBA392B5EB6F100B70628 /* AppDelegate.swift */; };
 		9DBBBA3C2B5EB6F100B70628 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBBBA3B2B5EB6F100B70628 /* SceneDelegate.swift */; };
 		9DBBBA432B5EB6F300B70628 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DBBBA422B5EB6F300B70628 /* Assets.xcassets */; };
@@ -55,6 +59,10 @@
 		9DB07CD72B9C31C5003B6B45 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		9DB07CDA2B9C33B7003B6B45 /* HomeSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSelectionView.swift; sourceTree = "<group>"; };
 		9DB07CE12B9CA6BD003B6B45 /* FrameworkSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameworkSelectionView.swift; sourceTree = "<group>"; };
+		9DB07CE62B9D82DC003B6B45 /* SwiftUIWithoutViewModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIWithoutViewModelView.swift; sourceTree = "<group>"; };
+		9DB07CEA2B9D8D02003B6B45 /* SwiftUIWithViewModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIWithViewModelView.swift; sourceTree = "<group>"; };
+		9DB07CEC2B9D8D0E003B6B45 /* SwiftUIWithViewModelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIWithViewModelViewModel.swift; sourceTree = "<group>"; };
+		9DB07CEF2B9D9539003B6B45 /* UIViewController+Extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extras.swift"; sourceTree = "<group>"; };
 		9DBBBA362B5EB6F100B70628 /* UIKitSwiftUIDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIKitSwiftUIDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DBBBA392B5EB6F100B70628 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9DBBBA3B2B5EB6F100B70628 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -122,6 +130,7 @@
 		9D4E867A2B88847500899F99 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				9DB07CEE2B9D9464003B6B45 /* Extensions */,
 				9D4E867C2B8884B200899F99 /* Base */,
 				9DCACB4D2B8A2E3200163D93 /* Controllers */,
 				9DCACB4A2B8A2C8300163D93 /* Models */,
@@ -149,6 +158,7 @@
 		9D4E867F2B8884E700899F99 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				9DB07CE32B9CAD3E003B6B45 /* SwiftUINavigation */,
 				9DB07CD62B9C30C9003B6B45 /* Home */,
 				9D4E867B2B88848400899F99 /* Splash */,
 				9D4E86802B88861700899F99 /* SwiftUIKitInterop */,
@@ -240,6 +250,47 @@
 			path = FrameworkSelectionView;
 			sourceTree = "<group>";
 		};
+		9DB07CE32B9CAD3E003B6B45 /* SwiftUINavigation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SwiftUINavigation;
+			sourceTree = "<group>";
+		};
+		9DB07CE52B9D82BB003B6B45 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9DB07CE92B9D8CF2003B6B45 /* WithViewModel */,
+				9DB07CE82B9D8CE7003B6B45 /* WithoutViewModel */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9DB07CE82B9D8CE7003B6B45 /* WithoutViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9DB07CE62B9D82DC003B6B45 /* SwiftUIWithoutViewModelView.swift */,
+			);
+			path = WithoutViewModel;
+			sourceTree = "<group>";
+		};
+		9DB07CE92B9D8CF2003B6B45 /* WithViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9DB07CEA2B9D8D02003B6B45 /* SwiftUIWithViewModelView.swift */,
+				9DB07CEC2B9D8D0E003B6B45 /* SwiftUIWithViewModelViewModel.swift */,
+			);
+			path = WithViewModel;
+			sourceTree = "<group>";
+		};
+		9DB07CEE2B9D9464003B6B45 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9DB07CEF2B9D9539003B6B45 /* UIViewController+Extras.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		9DBBBA2D2B5EB6F100B70628 = {
 			isa = PBXGroup;
 			children = (
@@ -275,6 +326,7 @@
 			isa = PBXGroup;
 			children = (
 				9DCACB512B8A2F8300163D93 /* Screen */,
+				9DB07CE52B9D82BB003B6B45 /* Views */,
 			);
 			path = UIKitScreen;
 			sourceTree = "<group>";
@@ -544,6 +596,7 @@
 				9DB07CC82B9C092B003B6B45 /* SolutionAView.swift in Sources */,
 				9DCACB402B88D1CB00163D93 /* UIKitScreenViewModel.swift in Sources */,
 				9DCACB6E2B8B4B2B00163D93 /* DefaultRegisterNetworkService.swift in Sources */,
+				9DB07CED2B9D8D0E003B6B45 /* SwiftUIWithViewModelViewModel.swift in Sources */,
 				9DB07CCA2B9C0946003B6B45 /* SolutionBViewModel.swift in Sources */,
 				9DCACB6B2B8B4A8900163D93 /* DefaultRegisterAppService.swift in Sources */,
 				9DB07CC62B9C0922003B6B45 /* SolutionAViewModel.swift in Sources */,
@@ -556,12 +609,15 @@
 				9DCACB582B8A311800163D93 /* SwiftUIScreenViewModel.swift in Sources */,
 				9DB07CCC2B9C0953003B6B45 /* SolutionBView.swift in Sources */,
 				9DCACB652B8B17D400163D93 /* RegisterNetworkService.swift in Sources */,
+				9DB07CF02B9D9539003B6B45 /* UIViewController+Extras.swift in Sources */,
 				9DCACB3E2B88D1C200163D93 /* UIKitScreenViewController.swift in Sources */,
 				9DCACB4F2B8A2E4D00163D93 /* NavigationController.swift in Sources */,
+				9DB07CE72B9D82DC003B6B45 /* SwiftUIWithoutViewModelView.swift in Sources */,
 				9DB07CDB2B9C33B7003B6B45 /* HomeSelectionView.swift in Sources */,
 				9DB07CC12B9C05E6003B6B45 /* ViewModelCoordinator.swift in Sources */,
 				9DBBBA3C2B5EB6F100B70628 /* SceneDelegate.swift in Sources */,
 				9DCACB4C2B8A2C9200163D93 /* PresentationStyle.swift in Sources */,
+				9DB07CEB2B9D8D02003B6B45 /* SwiftUIWithViewModelView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

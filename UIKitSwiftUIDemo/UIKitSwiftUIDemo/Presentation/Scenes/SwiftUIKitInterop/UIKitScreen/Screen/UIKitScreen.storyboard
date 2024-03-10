@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,20 +16,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UIKit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yoQ-lU-Ix2">
-                                <rect key="frame" x="178.33333333333334" y="415.66666666666669" width="36.666666666666657" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="MDt-DY-Ufb">
+                                <rect key="frame" x="71.666666666666686" y="266" width="250" height="320.33333333333326"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0p1-lT-aOv">
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="20.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" placeholderIntrinsicWidth="250" placeholderIntrinsicHeight="100" translatesAutoresizingMaskIntoConstraints="NO" id="QCM-Bh-9w6">
+                                        <rect key="frame" x="0.0" y="70.333333333333314" width="250" height="100"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" placeholderIntrinsicWidth="250" placeholderIntrinsicHeight="100" translatesAutoresizingMaskIntoConstraints="NO" id="uvm-Jc-cyx">
+                                        <rect key="frame" x="0.0" y="220.33333333333331" width="250" height="100"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="yoQ-lU-Ix2" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="9F8-Hh-M6H"/>
-                            <constraint firstItem="yoQ-lU-Ix2" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="sQR-Ai-Vwd"/>
+                            <constraint firstItem="MDt-DY-Ufb" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="NDK-Ql-ZGI"/>
+                            <constraint firstItem="MDt-DY-Ufb" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="lGx-99-mjc"/>
+                            <constraint firstItem="MDt-DY-Ufb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="sNY-tb-UEn"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="MDt-DY-Ufb" secondAttribute="trailing" constant="20" id="su6-rd-GrY"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="label" destination="0p1-lT-aOv" id="YFD-qt-cpm"/>
+                        <outlet property="viewWithViewModelContainer" destination="QCM-Bh-9w6" id="X2P-uV-pTj"/>
+                        <outlet property="viewWithoutViewModelContainer" destination="uvm-Jc-cyx" id="jsb-rw-b7O"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
