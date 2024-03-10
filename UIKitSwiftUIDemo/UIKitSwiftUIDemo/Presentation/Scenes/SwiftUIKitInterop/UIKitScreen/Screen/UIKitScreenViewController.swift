@@ -68,7 +68,7 @@ private extension UIKitScreenViewController {
     }
     
     func viewWithoutViewModelTapHandler() {
-        print("UIKitScreenViewController - viewWithoutViewModelTapHandler")
+        print("UIKitScreenViewController - View without ViewModel - Button Tapped")
     }
     
     // MARK: - View With ViewModel

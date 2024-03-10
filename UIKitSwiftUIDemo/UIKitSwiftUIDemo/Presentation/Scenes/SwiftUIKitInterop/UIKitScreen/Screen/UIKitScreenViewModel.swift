@@ -59,8 +59,9 @@ extension UIKitScreenViewModel: UIKitScreenViewModelOutput {
         return swiftUIWithViewModelViewModel
     }
 }
+
 extension UIKitScreenViewModel: SwiftUIWithViewModelViewModelDelegate {
     func swiftUIWithViewModelViewModelDidTapButton() {
-        print("UIKitScreenViewModel - viewWithViewModelTapHandler")
+        print("UIKitScreenViewModel - View with ViewModel - Button Tapped")
     }
 }

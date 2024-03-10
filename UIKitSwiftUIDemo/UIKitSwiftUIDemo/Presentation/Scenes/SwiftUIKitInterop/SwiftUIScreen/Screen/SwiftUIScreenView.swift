@@ -11,7 +11,10 @@ struct SwiftUIScreenView<ViewModel: SwiftUIScreenViewModel>: View {
     @ObservedObject var viewModel: ViewModel
     
     var body: some View {
-        Text("SwiftUI")
+        UIKitWithoutViewModelViewComponent(title: viewModel.title) {
+            print("SwiftUIScreenView - View without ViewModel - Button Tapped")
+        }
+        .padding()
     }
 }
 

@@ -22,7 +22,7 @@ final class SolutionAViewModel: ObservableObject {
     @Published private var isActionEnabled = false
     @Published private var name = "" {
         didSet {
-            print("ViewModel - name: \(name)")
+            print("SolutionAViewModel - name: \(name)")
         }
     }
     

@@ -32,7 +32,5 @@ struct SwiftUIWithoutViewModelView: View {
 }
 
 #Preview {
-    SwiftUIWithoutViewModelView(title: "Product name") {
-        print("Tapped")
-    }
+    SwiftUIWithoutViewModelView(title: "Product name") { }
 }

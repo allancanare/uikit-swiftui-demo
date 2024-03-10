@@ -11,7 +11,7 @@ import Combine
 final class SolutionBViewModel: ObservableObject {
     @Published var name = "" {
         didSet {
-            print("ViewModel - name: \(name)")
+            print("SolutionBViewModel - name: \(name)")
         }
     }
     @Published var isActionEnabled = false

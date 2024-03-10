@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D1BE98F2B9DCD1C00E33FE8 /* UIKitWithoutViewModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1BE98E2B9DCD1C00E33FE8 /* UIKitWithoutViewModelView.swift */; };
+		9D1BE9912B9DD16C00E33FE8 /* UIKitWithoutViewModelViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1BE9902B9DD16C00E33FE8 /* UIKitWithoutViewModelViewComponent.swift */; };
 		9D4E867E2B8884CB00899F99 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4E867D2B8884CB00899F99 /* BaseCoordinator.swift */; };
 		9D4E86822B88863100899F99 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4E86812B88863100899F99 /* AppCoordinator.swift */; };
 		9DB07CC12B9C05E6003B6B45 /* ViewModelCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB07CC02B9C05E6003B6B45 /* ViewModelCoordinator.swift */; };
@@ -46,6 +48,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9D1BE98E2B9DCD1C00E33FE8 /* UIKitWithoutViewModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitWithoutViewModelView.swift; sourceTree = "<group>"; };
+		9D1BE9902B9DD16C00E33FE8 /* UIKitWithoutViewModelViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitWithoutViewModelViewComponent.swift; sourceTree = "<group>"; };
 		9D4E867D2B8884CB00899F99 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		9D4E86812B88863100899F99 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		9DB07CC02B9C05E6003B6B45 /* ViewModelCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelCoordinator.swift; sourceTree = "<group>"; };
@@ -115,6 +119,31 @@
 				ECA3FCAF9DCFA26A87322A6D /* Pods-UIKitSwiftUIDemo.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		9D1BE98B2B9DCCEE00E33FE8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9D1BE98D2B9DCCFC00E33FE8 /* WithoutViewModel */,
+				9D1BE98C2B9DCCF400E33FE8 /* WithViewModel */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9D1BE98C2B9DCCF400E33FE8 /* WithViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9D1BE98E2B9DCD1C00E33FE8 /* UIKitWithoutViewModelView.swift */,
+				9D1BE9902B9DD16C00E33FE8 /* UIKitWithoutViewModelViewComponent.swift */,
+			);
+			path = WithViewModel;
+			sourceTree = "<group>";
+		};
+		9D1BE98D2B9DCCFC00E33FE8 /* WithoutViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = WithoutViewModel;
 			sourceTree = "<group>";
 		};
 		9D4E86792B88845E00899F99 /* Application */ = {
@@ -359,6 +388,7 @@
 			isa = PBXGroup;
 			children = (
 				9DCACB522B8A2F8B00163D93 /* Screen */,
+				9D1BE98B2B9DCCEE00E33FE8 /* Views */,
 			);
 			path = SwiftUIScreen;
 			sourceTree = "<group>";
@@ -601,6 +631,7 @@
 				9DCACB6B2B8B4A8900163D93 /* DefaultRegisterAppService.swift in Sources */,
 				9DB07CC62B9C0922003B6B45 /* SolutionAViewModel.swift in Sources */,
 				9DB07CE22B9CA6BD003B6B45 /* FrameworkSelectionView.swift in Sources */,
+				9D1BE98F2B9DCD1C00E33FE8 /* UIKitWithoutViewModelView.swift in Sources */,
 				9D4E867E2B8884CB00899F99 /* BaseCoordinator.swift in Sources */,
 				9DCACB5C2B8B16A100163D93 /* RegisterAppService.swift in Sources */,
 				9DB07CD82B9C31C5003B6B45 /* HomeCoordinator.swift in Sources */,
@@ -618,6 +649,7 @@
 				9DBBBA3C2B5EB6F100B70628 /* SceneDelegate.swift in Sources */,
 				9DCACB4C2B8A2C9200163D93 /* PresentationStyle.swift in Sources */,
 				9DB07CEB2B9D8D02003B6B45 /* SwiftUIWithViewModelView.swift in Sources */,
+				9D1BE9912B9DD16C00E33FE8 /* UIKitWithoutViewModelViewComponent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

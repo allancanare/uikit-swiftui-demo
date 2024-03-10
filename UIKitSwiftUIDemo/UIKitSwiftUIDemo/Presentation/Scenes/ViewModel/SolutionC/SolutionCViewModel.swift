@@ -16,7 +16,7 @@ protocol SolutionCViewModelProtocol: ObservableObject {
 final class SolutionCViewModel {
     @Published var name = "" {
         didSet {
-            print("ViewModel - name: \(name)")
+            print("SolutionCViewModel - name: \(name)")
         }
     }
     @Published var isActionEnabled = false
