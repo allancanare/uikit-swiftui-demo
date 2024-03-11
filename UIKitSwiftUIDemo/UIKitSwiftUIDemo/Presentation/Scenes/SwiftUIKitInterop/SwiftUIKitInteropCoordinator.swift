@@ -73,9 +73,10 @@ extension SwiftUIKitInteropCoordinator: FrameworkSelectionViewDelegate {
     }
     
     func frameworkSelectionViewWillShowSwiftUI() {
-        let view = SwiftUIScreenView(viewModel: SwiftUIScreenViewModel())
-        let viewController = UIHostingController(rootView: view)
-        viewController.title = "SwiftUI"
+        let viewModel = SwiftUIScreenViewModel()
+        let view = SwiftUIScreenView(viewModel: viewModel)
+        let viewController = BaseHostingController(rootView: view)
+        viewController.navigationBarDataSource = viewModel
         navigationController.pushViewController(viewController,
                                                 animated: true)
     }

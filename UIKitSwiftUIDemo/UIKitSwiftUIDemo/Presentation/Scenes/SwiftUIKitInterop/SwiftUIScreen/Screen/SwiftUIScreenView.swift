@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SwiftUIScreenView<ViewModel: SwiftUIScreenViewModel>: View {
+struct SwiftUIScreenView<ViewModel: SwiftUIScreenViewModelProtocol>: View {
     @ObservedObject var viewModel: ViewModel
     
     var body: some View {

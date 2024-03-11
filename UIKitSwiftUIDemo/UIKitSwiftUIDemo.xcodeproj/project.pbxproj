@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		9D1BE98F2B9DCD1C00E33FE8 /* UIKitWithoutViewModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1BE98E2B9DCD1C00E33FE8 /* UIKitWithoutViewModelView.swift */; };
 		9D1BE9912B9DD16C00E33FE8 /* UIKitWithoutViewModelViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1BE9902B9DD16C00E33FE8 /* UIKitWithoutViewModelViewComponent.swift */; };
+		9D1BE9932B9E051300E33FE8 /* BaseHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1BE9922B9E051300E33FE8 /* BaseHostingController.swift */; };
+		9D1BE9952B9E062C00E33FE8 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1BE9942B9E062C00E33FE8 /* NavigationBar.swift */; };
 		9D4E867E2B8884CB00899F99 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4E867D2B8884CB00899F99 /* BaseCoordinator.swift */; };
 		9D4E86822B88863100899F99 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4E86812B88863100899F99 /* AppCoordinator.swift */; };
 		9DB07CC12B9C05E6003B6B45 /* ViewModelCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB07CC02B9C05E6003B6B45 /* ViewModelCoordinator.swift */; };
@@ -50,6 +52,8 @@
 /* Begin PBXFileReference section */
 		9D1BE98E2B9DCD1C00E33FE8 /* UIKitWithoutViewModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitWithoutViewModelView.swift; sourceTree = "<group>"; };
 		9D1BE9902B9DD16C00E33FE8 /* UIKitWithoutViewModelViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitWithoutViewModelViewComponent.swift; sourceTree = "<group>"; };
+		9D1BE9922B9E051300E33FE8 /* BaseHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseHostingController.swift; sourceTree = "<group>"; };
+		9D1BE9942B9E062C00E33FE8 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		9D4E867D2B8884CB00899F99 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		9D4E86812B88863100899F99 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		9DB07CC02B9C05E6003B6B45 /* ViewModelCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelCoordinator.swift; sourceTree = "<group>"; };
@@ -146,6 +150,14 @@
 			path = WithoutViewModel;
 			sourceTree = "<group>";
 		};
+		9D1BE9962B9F26EE00E33FE8 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				9DCACB4D2B8A2E3200163D93 /* Controllers */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		9D4E86792B88845E00899F99 /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -159,9 +171,9 @@
 		9D4E867A2B88847500899F99 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				9D1BE9962B9F26EE00E33FE8 /* Common */,
 				9DB07CEE2B9D9464003B6B45 /* Extensions */,
 				9D4E867C2B8884B200899F99 /* Base */,
-				9DCACB4D2B8A2E3200163D93 /* Controllers */,
 				9DCACB4A2B8A2C8300163D93 /* Models */,
 				9D4E867F2B8884E700899F99 /* Scenes */,
 			);
@@ -180,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				9D4E867D2B8884CB00899F99 /* BaseCoordinator.swift */,
+				9D1BE9922B9E051300E33FE8 /* BaseHostingController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -372,6 +385,7 @@
 			isa = PBXGroup;
 			children = (
 				9DCACB4B2B8A2C9200163D93 /* PresentationStyle.swift */,
+				9D1BE9942B9E062C00E33FE8 /* NavigationBar.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -633,11 +647,13 @@
 				9DB07CE22B9CA6BD003B6B45 /* FrameworkSelectionView.swift in Sources */,
 				9D1BE98F2B9DCD1C00E33FE8 /* UIKitWithoutViewModelView.swift in Sources */,
 				9D4E867E2B8884CB00899F99 /* BaseCoordinator.swift in Sources */,
+				9D1BE9932B9E051300E33FE8 /* BaseHostingController.swift in Sources */,
 				9DCACB5C2B8B16A100163D93 /* RegisterAppService.swift in Sources */,
 				9DB07CD82B9C31C5003B6B45 /* HomeCoordinator.swift in Sources */,
 				9DB07CD02B9C0973003B6B45 /* SolutionCView.swift in Sources */,
 				9DCACB602B8B172900163D93 /* UserModel.swift in Sources */,
 				9DCACB582B8A311800163D93 /* SwiftUIScreenViewModel.swift in Sources */,
+				9D1BE9952B9E062C00E33FE8 /* NavigationBar.swift in Sources */,
 				9DB07CCC2B9C0953003B6B45 /* SolutionBView.swift in Sources */,
 				9DCACB652B8B17D400163D93 /* RegisterNetworkService.swift in Sources */,
 				9DB07CF02B9D9539003B6B45 /* UIViewController+Extras.swift in Sources */,
