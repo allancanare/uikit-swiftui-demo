@@ -62,4 +62,10 @@ extension HomeCoordinator: HomeSelectionViewDelegate {
         let coordinator = SwiftUIKitInteropCoordinator(presentationStyle: .push(navigationController))
         coordinate(to: coordinator)
     }
+    
+    func homeSelectionViewWillShowExampleScreen() {
+        let coordinator = ExampleScreenCoordinator(presentationStyle: .present(navigationController, 
+                                                                               isFullScreen: true))
+        coordinate(to: coordinator)
+    }
 }

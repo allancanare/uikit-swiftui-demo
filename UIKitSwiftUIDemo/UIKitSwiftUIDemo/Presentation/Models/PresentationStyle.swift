@@ -8,7 +8,7 @@
 import UIKit
 
 enum PresentationStyle {
-    case present(UIViewController)
+    case present(UIViewController, isFullScreen: Bool)
     case push(UINavigationController)
     case root(UIWindow)
 }

@@ -10,6 +10,7 @@ import SwiftUI
 protocol HomeSelectionViewDelegate {
     func homeSelectionViewWillShowViewModel()
     func homeSelectionViewWillShowSwiftUIKitInterop()
+    func homeSelectionViewWillShowExampleScreen()
 }
 
 struct HomeSelectionView: View {
@@ -26,6 +27,11 @@ struct HomeSelectionView: View {
                 delegate?.homeSelectionViewWillShowSwiftUIKitInterop()
             } label: {
                 Text("UIKit SwiftUI Interop")
+            }
+            Button {
+                delegate?.homeSelectionViewWillShowExampleScreen()
+            } label: {
+                Text("Example Screens")
             }
         }
     }
