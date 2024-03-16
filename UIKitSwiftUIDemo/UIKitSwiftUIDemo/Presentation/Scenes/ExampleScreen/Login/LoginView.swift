@@ -15,5 +15,5 @@ struct LoginView<ViewModel: LoginViewModelProtocol>: View {
 }
 
 #Preview {
-    LoginView(viewModel: LoginViewModel())
+    LoginView(viewModel: LoginViewModel(navigationBarDataSource: NavigationBarDataSource()))
 }

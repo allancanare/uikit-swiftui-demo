@@ -7,29 +7,23 @@
 
 import SwiftUI
 
-protocol HomeSelectionViewDelegate {
-    func homeSelectionViewWillShowViewModel()
-    func homeSelectionViewWillShowSwiftUIKitInterop()
-    func homeSelectionViewWillShowExampleScreen()
-}
-
-struct HomeSelectionView: View {
-    var delegate: HomeSelectionViewDelegate?
+struct HomeSelectionView<ViewModel: HomeSelectionViewModelProtocol>: View {
+    @ObservedObject var viewModel: ViewModel
     
     var body: some View {
         List {
             Button {
-                delegate?.homeSelectionViewWillShowViewModel()
+                viewModel.showViewModel()
             } label: {
                 Text("View Model")
             }
             Button {
-                delegate?.homeSelectionViewWillShowSwiftUIKitInterop()
+                viewModel.showSwiftUIKitInterop()
             } label: {
                 Text("UIKit SwiftUI Interop")
             }
             Button {
-                delegate?.homeSelectionViewWillShowExampleScreen()
+                viewModel.showExampleScreen()
             } label: {
                 Text("Example Screens")
             }
@@ -38,5 +32,5 @@ struct HomeSelectionView: View {
 }
 
 #Preview {
-    HomeSelectionView()
+    HomeSelectionView(viewModel: HomeSelectionViewModel(navigationBarDataSource: NavigationBarDataSource()))
 }

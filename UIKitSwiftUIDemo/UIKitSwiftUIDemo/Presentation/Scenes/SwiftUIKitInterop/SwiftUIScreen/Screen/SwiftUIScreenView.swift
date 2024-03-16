@@ -19,5 +19,5 @@ struct SwiftUIScreenView<ViewModel: SwiftUIScreenViewModelProtocol>: View {
 }
 
 #Preview {
-    SwiftUIScreenView(viewModel: SwiftUIScreenViewModel())
+    SwiftUIScreenView(viewModel: SwiftUIScreenViewModel(navigationBarDataSource: NavigationBarDataSource()))
 }

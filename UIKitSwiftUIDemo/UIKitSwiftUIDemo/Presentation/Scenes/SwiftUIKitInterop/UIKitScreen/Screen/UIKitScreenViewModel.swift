@@ -25,8 +25,10 @@ protocol UIKitScreenViewModelOutput {
 typealias UIKitScreenViewModelProtocol = UIKitScreenViewModelInput & UIKitScreenViewModelOutput
 
 final class UIKitScreenViewModel {
+    // MARK: Public Properties
     weak var delegate: UIKitScreenViewModelDelegate?
     
+    // MARK: Private Properties
     @Published private var infoPublished = "UIKit UILabel"
     @Published private var titlePublished = "SwiftUI Text"
     
@@ -37,6 +39,7 @@ final class UIKitScreenViewModel {
     }()
 }
 
+// MARK: - UIKitScreenViewModelInput
 extension UIKitScreenViewModel: UIKitScreenViewModelInput {
     func loadData() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
@@ -46,6 +49,7 @@ extension UIKitScreenViewModel: UIKitScreenViewModelInput {
     }
 }
 
+// MARK: - UIKitScreenViewModelOutput
 extension UIKitScreenViewModel: UIKitScreenViewModelOutput {
     var infoPublisher: Published<String>.Publisher {
         return $infoPublished
@@ -60,8 +64,9 @@ extension UIKitScreenViewModel: UIKitScreenViewModelOutput {
     }
 }
 
+// MARK: - SwiftUIWithViewModelViewModelDelegate
 extension UIKitScreenViewModel: SwiftUIWithViewModelViewModelDelegate {
     func swiftUIWithViewModelViewModelDidTapButton() {
-        print("UIKitScreenViewModel - View with ViewModel - Button Tapped")
+        print("UIKitScreenViewModel - SwiftUIWithViewModelViewModel - Button Tapped")
     }
 }

@@ -7,22 +7,18 @@
 
 import SwiftUI
 
-protocol FrameworkSelectionViewDelegate {
-    func frameworkSelectionViewWillShowUIKit()
-    func frameworkSelectionViewWillShowSwiftUI()
-}
-
-struct FrameworkSelectionView: View {
-    var delegate: FrameworkSelectionViewDelegate?
+struct FrameworkSelectionView<ViewModel: FrameworkSelectionViewModelProtocol>: View {
+    @ObservedObject var viewModel: ViewModel
+    
     var body: some View {
         List {
             Button {
-                delegate?.frameworkSelectionViewWillShowUIKit()
+                viewModel.showUIKit()
             } label: {
                 Text("UIKit")
             }
             Button {
-                delegate?.frameworkSelectionViewWillShowSwiftUI()
+                viewModel.showSwiftUI()
             } label: {
                 Text("SwiftUI")
             }
@@ -31,5 +27,5 @@ struct FrameworkSelectionView: View {
 }
 
 #Preview {
-    FrameworkSelectionView()
+    FrameworkSelectionView(viewModel: FrameworkSelectionViewModel(navigationBarDataSource: NavigationBarDataSource()))
 }

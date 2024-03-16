@@ -7,35 +7,39 @@
 
 import SwiftUI
 
-protocol ViewModelSelectionViewDelegate {
-    func viewModelSelectionViewWillShowSolutionA()
-    func viewModelSelectionViewWillShowSolutionB()
-    func viewModelSelectionViewWillShowSolutionC()
-}
-
-struct ViewModelSelectionView: View {
-    var delegate: ViewModelSelectionViewDelegate?
+struct ViewModelSelectionView<ViewModel: ViewModelSelectionViewModelProtocol>: View {
+    @ObservedObject var viewModel: ViewModel
+    
     var body: some View {
         List {
-            Button {
-                delegate?.viewModelSelectionViewWillShowSolutionA()
-            } label: {
-                Text("Solution A")
+            Section {
+                Button {
+                    viewModel.showSolutionA()
+                } label: {
+                    Text("Solution A")
+                }
+                Button {
+                    viewModel.showSolutionB()
+                } label: {
+                    Text("Solution B")
+                }
+                Button {
+                    viewModel.showSolutionC()
+                } label: {
+                    Text("Solution C")
+                }
             }
-            Button {
-                delegate?.viewModelSelectionViewWillShowSolutionB()
-            } label: {
-                Text("Solution B")
-            }
-            Button {
-                delegate?.viewModelSelectionViewWillShowSolutionC()
-            } label: {
-                Text("Solution C")
+            Section {
+                Button {
+                    viewModel.showSwiftUIKitInterop()
+                } label: {
+                    Text("UIKit SwiftUI Interop")
+                }
             }
         }
     }
 }
 
 #Preview {
-    ViewModelSelectionView()
+    ViewModelSelectionView(viewModel: ViewModelSelectionViewModel(navigationBarDataSource: NavigationBarDataSource()))
 }

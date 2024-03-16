@@ -10,7 +10,7 @@ import SwiftUI
 
 // MARK: - Protocols
 protocol ExampleScreenCoordinatorDelegate: AnyObject {
-    
+    func exampleScreenCoordinatorWillDismiss(_ coordinator: ExampleScreenCoordinator)
 }
 
 // MARK: - Class Declaration
@@ -18,48 +18,40 @@ final class ExampleScreenCoordinator: BaseCoordinator {
     // MARK: Public Properties
     weak var delegate: ExampleScreenCoordinatorDelegate?
     
-    // MARK: Private Properties
-    private let presentationStyle: PresentationStyle
-    private let ownNavigationController = UINavigationController()
-    private var navigationController: UINavigationController {
-        switch presentationStyle {
-        case .present:
-            return ownNavigationController
-        default:
-            fatalError("ExampleScreenCoordinator only supports present presentation style")
-        }
-    }
-    
     // MARK: Initialization
-    init(presentationStyle: PresentationStyle) {
-        self.presentationStyle = presentationStyle
+    override init(presentationStyle: PresentationStyle) {
+        super.init(presentationStyle: presentationStyle)
     }
     
     // MARK: Overrides
     override func start() {
         showLogin()
     }
+    
+    override func didDismissPushedFirstScreen() {
+        delegate?.exampleScreenCoordinatorWillDismiss(self)
+    }
 }
 
 // MARK: - Private Functions
 private extension ExampleScreenCoordinator {
     func showLogin() {
-        let viewModel = LoginViewModel()
+        let navigationBarDataSource = NavigationBarDataSource(hasCloseButton: isCoordinatorPresented)
+        let viewModel = LoginViewModel(navigationBarDataSource: navigationBarDataSource)
+        viewModel.delegate = self
+        navigationBarDataSource.delegate = viewModel
         let view = LoginView(viewModel: viewModel)
         let viewController = BaseHostingController(rootView: view)
-        viewController.navigationBarDataSource = viewModel
-        
-        navigationController.pushViewController(viewController,
-                                                animated: true)
-        switch presentationStyle {
-        case .present(let viewController, let isFullScreen):
-            if isFullScreen {
-                navigationController.modalPresentationStyle = .fullScreen
-            }
-            viewController.present(navigationController,
-                                   animated: true)
-        default:
-            fatalError("ExampleScreenCoordinator only supports present presentation style")
+        viewController.navigationBarDataSource = navigationBarDataSource
+        showFirstScreen(viewController)
+    }
+}
+
+// MARK: - LoginViewModelDelegate
+extension ExampleScreenCoordinator: LoginViewModelDelegate {
+    func loginViewModelWillClose(_ viewModel: any LoginViewModelProtocol) {
+        dismissCoordinatorScreens {
+            self.delegate?.exampleScreenCoordinatorWillDismiss(self)
         }
     }
 }

@@ -9,29 +9,48 @@ import Foundation
 import Combine
 import UIKit
 
+protocol SwiftUIScreenViewModelDelegate: AnyObject {
+    
+}
+
 protocol SwiftUIScreenViewModelProtocol: ObservableObject {
-    var title: String { get set }
+    var title: String { get }
 }
 
 final class SwiftUIScreenViewModel {
-    @Published var title = "UIKit UILabel"
-    @Published var navigationTitlePublished = "Title"
-    @Published var navigationButtonsPublished = [NavigationBar.ButtonType]()
+    // MARK: Public Properties
+    weak var delegate: SwiftUIScreenViewModelDelegate?
     
-    init() {
+    // MARK: Private Properties
+    @Published private var titlePublished = "UIKit UILabel"
+    
+    private let navigationBarDataSource: NavigationBarDataSource
+    
+    init(navigationBarDataSource: NavigationBarDataSource) {
+        self.navigationBarDataSource = navigationBarDataSource
         generateNavigationBarData()
         updateProperties()
     }
-    
+}
+
+// MARK: - SwiftUIScreenViewModelProtocol
+extension SwiftUIScreenViewModel: SwiftUIScreenViewModelProtocol {
+    var title: String {
+        return titlePublished
+    }
+}
+
+// MARK: - Private Functions
+private extension SwiftUIScreenViewModel {
     func updateProperties() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.title = "UIKit UILabel - Without ViewModel"
+            self.titlePublished = "UIKit UILabel - Without ViewModel"
         }
     }
         
     func generateNavigationBarData() {
         // navigation title
-        self.navigationTitlePublished = "Title - Updated"
+        navigationBarDataSource.setTitle("SwiftUI")
         
         // button
         let favoriteButtonData = NavigationBar.ButtonType.ButtonData(icon: UIImage(systemName: "star")!) {
@@ -56,18 +75,6 @@ final class SwiftUIScreenViewModel {
         let menuButton = NavigationBar.ButtonType.menu(menuData)
         
         // navigation button
-        self.navigationButtonsPublished = [favoriteButton, menuButton]
-    }
-}
-
-extension SwiftUIScreenViewModel: SwiftUIScreenViewModelProtocol { }
-
-extension SwiftUIScreenViewModel: NavigationBar.DataSource {
-    var navigtionTitle: Published<String>.Publisher {
-        return $navigationTitlePublished
-    }
-    
-    var navigationButtons: Published<[NavigationBar.ButtonType]>.Publisher {
-        return $navigationButtonsPublished
+        navigationBarDataSource.setRightBarButtons([favoriteButton, menuButton])
     }
 }

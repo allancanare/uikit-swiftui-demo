@@ -23,22 +23,48 @@ class BaseHostingController<Content: View>: UIHostingController<Content> {
 private extension BaseHostingController {
     func setupBindings(_ navigationBarDataSource: NavigationBar.DataSource) {
         navigationBarDataSource
-            .navigtionTitle
+            .navigationBarTitle
             .sink { title in
                 self.title = title
             }
             .store(in: &cancellables)
         
         navigationBarDataSource
-            .navigationButtons
+            .leftNavigationBarButtons
             .sink { [weak self] buttons in
-                self?.setNavigationBarButtons(buttons)
+                self?.setLeftNavigationBarButtons(buttons)
+            }
+            .store(in: &cancellables)
+        
+        navigationBarDataSource
+            .rightNavigationBarButtons
+            .sink { [weak self] buttons in
+                self?.setRightNavigationBarButtons(buttons)
+            }
+            .store(in: &cancellables)
+        
+        navigationBarDataSource
+            .isNavigationBarVisible
+            .sink { [weak self] isVisible in
+                self?.navigationController?.setNavigationBarHidden(!isVisible,
+                                                                   animated: true)
             }
             .store(in: &cancellables)
     }
     
-    func setNavigationBarButtons(_ buttonTypes: [NavigationBar.ButtonType]) {
+    func setLeftNavigationBarButtons(_ buttonTypes: [NavigationBar.ButtonType]) {
+        navigationItem.leftBarButtonItems = nil
+        let buttons = getBarButtonItem(for: buttonTypes)
+        navigationItem.leftBarButtonItems = buttons
+    }
+    
+    func setRightNavigationBarButtons(_ buttonTypes: [NavigationBar.ButtonType]) {
         navigationItem.rightBarButtonItems = nil
+        let buttons = getBarButtonItem(for: buttonTypes)
+        navigationItem.rightBarButtonItems = buttons
+    }
+    
+    func getBarButtonItem(for buttonTypes: [NavigationBar.ButtonType]) -> [UIBarButtonItem] {
         var buttons = [UIBarButtonItem]()
         buttonTypes.forEach { buttonType in
             switch buttonType {
@@ -62,6 +88,6 @@ private extension BaseHostingController {
                 buttons.append(button)
             }
         }
-        navigationItem.rightBarButtonItems = buttons
+        return buttons
     }
 }

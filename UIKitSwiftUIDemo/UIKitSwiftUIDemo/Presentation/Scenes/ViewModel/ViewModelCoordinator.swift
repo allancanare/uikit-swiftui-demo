@@ -10,7 +10,7 @@ import SwiftUI
 
 // MARK: - Protocols
 protocol ViewModelCoordinatorDelegate: AnyObject {
-    
+    func viewModelCoordinatorWillDismiss(_ coordinator: ViewModelCoordinator)
 }
 
 // MARK: - Class Declaration
@@ -18,73 +18,78 @@ final class ViewModelCoordinator: BaseCoordinator {
     // MARK: Public Properties
     weak var delegate: ViewModelCoordinatorDelegate?
     
-    // MARK: Private Properties
-    private let presentationStyle: PresentationStyle
-    private let ownNavigationController = UINavigationController()
-    private var navigationController: UINavigationController {
-        switch presentationStyle {
-        case .push(let navigationController):
-            return navigationController
-        default:
-            return ownNavigationController
-        }
-    }
-    
     // MARK: Initialization
-    init(presentationStyle: PresentationStyle) {
-        self.presentationStyle = presentationStyle
+    override init(presentationStyle: PresentationStyle) {
+        super.init(presentationStyle: presentationStyle)
     }
     
     // MARK: Overrides
     override func start() {
         showViewModelSelection()
     }
+    
+    override func didDismissPushedFirstScreen() {
+        delegate?.viewModelCoordinatorWillDismiss(self)
+    }
 }
 
 // MARK: - Private Functions
 private extension ViewModelCoordinator {
     func showViewModelSelection() {
-        let view = ViewModelSelectionView(delegate: self)
-        let viewController = UIHostingController(rootView: view)
-        viewController.title = "Solution Selection"
-        
-        switch presentationStyle {
-        case .root(let window):
-            navigationController.pushViewController(viewController,
-                                                    animated: true)
-            window.rootViewController = navigationController
-        case .push:
-            navigationController.pushViewController(viewController, 
-                                                    animated: true)
-        default:
-            fatalError("ViewModelCoordinator only supports root and push presentation styles")
-        }
+        let navigationBarDataSource = NavigationBarDataSource()
+        let viewModel = ViewModelSelectionViewModel(navigationBarDataSource: navigationBarDataSource)
+        viewModel.delegate = self
+        navigationBarDataSource.delegate = viewModel
+        let view = ViewModelSelectionView(viewModel: viewModel)
+        let viewController = BaseHostingController(rootView: view)
+        viewController.navigationBarDataSource = navigationBarDataSource
+        showFirstScreen(viewController)
     }
 }
 
 // MARK: - ViewModelSelectionViewModelDelegate
-extension ViewModelCoordinator: ViewModelSelectionViewDelegate {
-    func viewModelSelectionViewWillShowSolutionA() {
+extension ViewModelCoordinator: ViewModelSelectionViewModelDelegate {
+    func viewModelSelectionViewModelWillClose(_ viewModel: any ViewModelSelectionViewModelProtocol) {
+        dismissCoordinatorScreens {
+            self.delegate?.viewModelCoordinatorWillDismiss(self)
+        }
+    }
+    
+    func viewModelSelectionViewModelWillShowSolutionA(_ viewModel: any ViewModelSelectionViewModelProtocol) {
         let view = SolutionAView(viewModel: SolutionAViewModel())
-        let viewController = UIHostingController(rootView: view)
+        let viewController = BaseHostingController(rootView: view)
         viewController.title = "Solution A"
         navigationController.pushViewController(viewController,
                                                 animated: true)
     }
     
-    func viewModelSelectionViewWillShowSolutionB() {
+    func viewModelSelectionViewModelWillShowSolutionB(_ viewModel: any ViewModelSelectionViewModelProtocol) {
         let view = SolutionBView(viewModel: SolutionBViewModel())
-        let viewController = UIHostingController(rootView: view)
+        let viewController = BaseHostingController(rootView: view)
         viewController.title = "Solution B"
         navigationController.pushViewController(viewController,
                                                 animated: true)
     }
     
-    func viewModelSelectionViewWillShowSolutionC() {
+    func viewModelSelectionViewModelWillShowSolutionC(_ viewModel: any ViewModelSelectionViewModelProtocol) {
         let view = SolutionCView(viewModel: SolutionCViewModel())
-        let viewController = UIHostingController(rootView: view)
+        let viewController = BaseHostingController(rootView: view)
         viewController.title = "Solution C"
         navigationController.pushViewController(viewController,
                                                 animated: true)
+    }
+    
+    func viewModelSelectionViewModelWillShowSwiftUIKitInterop(_ viewModel: any ViewModelSelectionViewModelProtocol) {
+        let coordinator = SwiftUIKitInteropCoordinator(presentationStyle: .present(navigationController))
+        coordinator.delegate = self
+        coordinate(to: coordinator)
+    }
+}
+
+// MARK: - SwiftUIKitInteropCoordinatorDelegate
+extension ViewModelCoordinator: SwiftUIKitInteropCoordinatorDelegate {
+    func swiftUIKitInteropCoordinatorWillDismiss(_ coordinator: SwiftUIKitInteropCoordinator) {
+        print("ViewModelCoordinator - remove SwiftUIKitInteropCoordinator")
+        remove(childCoordinator: coordinator)
     }
 }

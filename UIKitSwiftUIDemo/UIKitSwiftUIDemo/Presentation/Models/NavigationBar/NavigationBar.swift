@@ -12,8 +12,10 @@ enum NavigationBar { }
 
 extension NavigationBar {
     protocol DataSource: AnyObject {
-        var navigtionTitle: Published<String>.Publisher { get }
-        var navigationButtons: Published<[NavigationBar.ButtonType]>.Publisher { get }
+        var navigationBarTitle: Published<String>.Publisher { get }
+        var leftNavigationBarButtons: Published<[NavigationBar.ButtonType]>.Publisher { get }
+        var rightNavigationBarButtons: Published<[NavigationBar.ButtonType]>.Publisher { get }
+        var isNavigationBarVisible: Published<Bool>.Publisher { get }
     }
     
     enum ButtonType {

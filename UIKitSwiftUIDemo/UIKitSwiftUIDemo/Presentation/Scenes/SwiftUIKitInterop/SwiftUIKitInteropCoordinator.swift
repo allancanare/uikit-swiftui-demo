@@ -10,7 +10,7 @@ import SwiftUI
 
 // MARK: - Protocols
 protocol SwiftUIKitInteropCoordinatorDelegate: AnyObject {
-    
+    func swiftUIKitInteropCoordinatorWillDismiss(_ coordinator: SwiftUIKitInteropCoordinator)
 }
 
 // MARK: - Class Declaration
@@ -18,52 +18,44 @@ final class SwiftUIKitInteropCoordinator: BaseCoordinator {
     // MARK: Public Properties
     weak var delegate: SwiftUIKitInteropCoordinatorDelegate?
     
-    // MARK: Private Properties
-    private let presentationStyle: PresentationStyle
-    private let ownNavigationController = UINavigationController()
-    private var navigationController: UINavigationController {
-        switch presentationStyle {
-        case .push(let navigationController):
-            return navigationController
-        default:
-            return ownNavigationController
-        }
-    }
-    
     // MARK: Initialization
-    init(presentationStyle: PresentationStyle) {
-        self.presentationStyle = presentationStyle
+    override init(presentationStyle: PresentationStyle) {
+        super.init(presentationStyle: presentationStyle)
     }
     
     // MARK: Overrides
     override func start() {
         showFrameworkSelection()
     }
+    
+    override func didDismissPushedFirstScreen() {
+        delegate?.swiftUIKitInteropCoordinatorWillDismiss(self)
+    }
 }
 
 // MARK: - Private Functions
 private extension SwiftUIKitInteropCoordinator {
     func showFrameworkSelection() {
-        let view = FrameworkSelectionView(delegate: self)
-        let viewController = UIHostingController(rootView: view)
-        viewController.title = "Framework Selection"
-        
-        switch presentationStyle {
-        case .root(let window):
-            navigationController.pushViewController(viewController,
-                                                    animated: true)
-            window.rootViewController = navigationController
-        case .push:
-            navigationController.pushViewController(viewController,
-                                                    animated: true)
-        default:
-            fatalError("SwiftUIKitInteropCoordinator only supports root and push presentation styles")
-        }
+        let navigationBarDataSource = NavigationBarDataSource(hasCloseButton: isCoordinatorPresented)
+        let viewModel = FrameworkSelectionViewModel(navigationBarDataSource: navigationBarDataSource)
+        viewModel.delegate = self
+        navigationBarDataSource.delegate = viewModel
+        let view = FrameworkSelectionView(viewModel: viewModel)
+        let viewController = BaseHostingController(rootView: view)
+        viewController.navigationBarDataSource = navigationBarDataSource
+        showFirstScreen(viewController)
     }
 }
 
-extension SwiftUIKitInteropCoordinator: FrameworkSelectionViewDelegate {
-    func frameworkSelectionViewWillShowUIKit() {
+// MARK: - FrameworkSelectionViewModelDelegate
+extension SwiftUIKitInteropCoordinator: FrameworkSelectionViewModelDelegate {
+    func frameworkSelectionViewModelWillClose(_ viewModel: any FrameworkSelectionViewModelProtocol) {
+        dismissCoordinatorScreens {
+            self.delegate?.swiftUIKitInteropCoordinatorWillDismiss(self)
+        }
+    }
+    
+    func frameworkSelectionViewModelWillShowUIKit(_ viewModel: any FrameworkSelectionViewModelProtocol) {
         let viewModel = UIKitScreenViewModel()
         viewModel.delegate = self
         let viewController = R.storyboard.uiKitScreen.loginViewController()!
@@ -72,17 +64,24 @@ extension SwiftUIKitInteropCoordinator: FrameworkSelectionViewDelegate {
                                                 animated: true)
     }
     
-    func frameworkSelectionViewWillShowSwiftUI() {
-        let viewModel = SwiftUIScreenViewModel()
+    func frameworkSelectionViewModelWillShowSwiftUI(_ viewModel: any FrameworkSelectionViewModelProtocol) {
+        let navigationBarDataSource = NavigationBarDataSource()
+        let viewModel = SwiftUIScreenViewModel(navigationBarDataSource: navigationBarDataSource)
+        viewModel.delegate = self
         let view = SwiftUIScreenView(viewModel: viewModel)
         let viewController = BaseHostingController(rootView: view)
-        viewController.navigationBarDataSource = viewModel
+        viewController.navigationBarDataSource = navigationBarDataSource
         navigationController.pushViewController(viewController,
                                                 animated: true)
     }
 }
 
+// MARK: - UIKitScreenViewModelDelegate
 extension SwiftUIKitInteropCoordinator: UIKitScreenViewModelDelegate {
-    func uiKitScreenViewModelWillShowSwiftUIScreen(_ viewModel: UIKitScreenViewModelProtocol) {
-    }
+    
+}
+
+// MARK: - SwiftUIScreenViewModelDelegate
+extension SwiftUIKitInteropCoordinator: SwiftUIScreenViewModelDelegate {
+    
 }

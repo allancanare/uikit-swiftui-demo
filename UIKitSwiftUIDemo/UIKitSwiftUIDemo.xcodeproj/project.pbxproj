@@ -16,6 +16,11 @@
 		9D1BE9A22BA323C300E33FE8 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1BE9A12BA323C300E33FE8 /* LoginViewModel.swift */; };
 		9D1BE9A42BA325C300E33FE8 /* UserListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1BE9A32BA325C300E33FE8 /* UserListView.swift */; };
 		9D1BE9A62BA325CF00E33FE8 /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1BE9A52BA325CF00E33FE8 /* UserListViewModel.swift */; };
+		9D1BE9A92BA5757700E33FE8 /* NavigationBarDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1BE9A82BA5757700E33FE8 /* NavigationBarDataSource.swift */; };
+		9D1BE9AB2BA5823D00E33FE8 /* UINavigationController+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1BE9AA2BA5823D00E33FE8 /* UINavigationController+Extras.swift */; };
+		9D1BE9C72BA5DC2800E33FE8 /* HomeSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1BE9C62BA5DC2800E33FE8 /* HomeSelectionViewModel.swift */; };
+		9D1BE9C92BA5DC8700E33FE8 /* FrameworkSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1BE9C82BA5DC8700E33FE8 /* FrameworkSelectionViewModel.swift */; };
+		9D1BE9CB2BA5DCB200E33FE8 /* ViewModelSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1BE9CA2BA5DCB200E33FE8 /* ViewModelSelectionViewModel.swift */; };
 		9D4E867E2B8884CB00899F99 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4E867D2B8884CB00899F99 /* BaseCoordinator.swift */; };
 		9D4E86822B88863100899F99 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4E86812B88863100899F99 /* AppCoordinator.swift */; };
 		9DB07CC12B9C05E6003B6B45 /* ViewModelCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB07CC02B9C05E6003B6B45 /* ViewModelCoordinator.swift */; };
@@ -64,6 +69,11 @@
 		9D1BE9A12BA323C300E33FE8 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		9D1BE9A32BA325C300E33FE8 /* UserListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListView.swift; sourceTree = "<group>"; };
 		9D1BE9A52BA325CF00E33FE8 /* UserListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewModel.swift; sourceTree = "<group>"; };
+		9D1BE9A82BA5757700E33FE8 /* NavigationBarDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarDataSource.swift; sourceTree = "<group>"; };
+		9D1BE9AA2BA5823D00E33FE8 /* UINavigationController+Extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extras.swift"; sourceTree = "<group>"; };
+		9D1BE9C62BA5DC2800E33FE8 /* HomeSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSelectionViewModel.swift; sourceTree = "<group>"; };
+		9D1BE9C82BA5DC8700E33FE8 /* FrameworkSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameworkSelectionViewModel.swift; sourceTree = "<group>"; };
+		9D1BE9CA2BA5DCB200E33FE8 /* ViewModelSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelSelectionViewModel.swift; sourceTree = "<group>"; };
 		9D4E867D2B8884CB00899F99 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		9D4E86812B88863100899F99 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		9DB07CC02B9C05E6003B6B45 /* ViewModelCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelCoordinator.swift; sourceTree = "<group>"; };
@@ -196,6 +206,15 @@
 			path = UserList;
 			sourceTree = "<group>";
 		};
+		9D1BE9A72BA5755F00E33FE8 /* NavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				9D1BE9942B9E062C00E33FE8 /* NavigationBar.swift */,
+				9D1BE9A82BA5757700E33FE8 /* NavigationBarDataSource.swift */,
+			);
+			path = NavigationBar;
+			sourceTree = "<group>";
+		};
 		9D4E86792B88845E00899F99 /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -301,6 +320,7 @@
 			isa = PBXGroup;
 			children = (
 				9DB07CD22B9C11DD003B6B45 /* ViewModelSelectionView.swift */,
+				9D1BE9CA2BA5DCB200E33FE8 /* ViewModelSelectionViewModel.swift */,
 			);
 			path = ViewModelSelection;
 			sourceTree = "<group>";
@@ -318,6 +338,7 @@
 			isa = PBXGroup;
 			children = (
 				9DB07CDA2B9C33B7003B6B45 /* HomeSelectionView.swift */,
+				9D1BE9C62BA5DC2800E33FE8 /* HomeSelectionViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -326,6 +347,7 @@
 			isa = PBXGroup;
 			children = (
 				9DB07CE12B9CA6BD003B6B45 /* FrameworkSelectionView.swift */,
+				9D1BE9C82BA5DC8700E33FE8 /* FrameworkSelectionViewModel.swift */,
 			);
 			path = FrameworkSelectionView;
 			sourceTree = "<group>";
@@ -359,6 +381,7 @@
 		9DB07CEE2B9D9464003B6B45 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				9D1BE9AA2BA5823D00E33FE8 /* UINavigationController+Extras.swift */,
 				9DB07CEF2B9D9539003B6B45 /* UIViewController+Extras.swift */,
 			);
 			path = Extensions;
@@ -416,7 +439,7 @@
 			isa = PBXGroup;
 			children = (
 				9DCACB4B2B8A2C9200163D93 /* PresentationStyle.swift */,
-				9D1BE9942B9E062C00E33FE8 /* NavigationBar.swift */,
+				9D1BE9A72BA5755F00E33FE8 /* NavigationBar */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -662,6 +685,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9DCACB562B8A2FAD00163D93 /* SwiftUIScreenView.swift in Sources */,
+				9D1BE9AB2BA5823D00E33FE8 /* UINavigationController+Extras.swift in Sources */,
 				9DB07CCE2B9C096A003B6B45 /* SolutionCViewModel.swift in Sources */,
 				9D1BE9A62BA325CF00E33FE8 /* UserListViewModel.swift in Sources */,
 				9D4E86822B88863100899F99 /* AppCoordinator.swift in Sources */,
@@ -676,7 +700,9 @@
 				9D1BE9A42BA325C300E33FE8 /* UserListView.swift in Sources */,
 				9DB07CED2B9D8D0E003B6B45 /* SwiftUIWithViewModelViewModel.swift in Sources */,
 				9DB07CCA2B9C0946003B6B45 /* SolutionBViewModel.swift in Sources */,
+				9D1BE9C72BA5DC2800E33FE8 /* HomeSelectionViewModel.swift in Sources */,
 				9DCACB6B2B8B4A8900163D93 /* DefaultRegisterAppService.swift in Sources */,
+				9D1BE9A92BA5757700E33FE8 /* NavigationBarDataSource.swift in Sources */,
 				9DB07CC62B9C0922003B6B45 /* SolutionAViewModel.swift in Sources */,
 				9DB07CE22B9CA6BD003B6B45 /* FrameworkSelectionView.swift in Sources */,
 				9D1BE98F2B9DCD1C00E33FE8 /* UIKitWithoutViewModelView.swift in Sources */,
@@ -692,6 +718,7 @@
 				9D1BE9952B9E062C00E33FE8 /* NavigationBar.swift in Sources */,
 				9DB07CCC2B9C0953003B6B45 /* SolutionBView.swift in Sources */,
 				9DCACB652B8B17D400163D93 /* RegisterNetworkService.swift in Sources */,
+				9D1BE9C92BA5DC8700E33FE8 /* FrameworkSelectionViewModel.swift in Sources */,
 				9DB07CF02B9D9539003B6B45 /* UIViewController+Extras.swift in Sources */,
 				9DCACB3E2B88D1C200163D93 /* UIKitScreenViewController.swift in Sources */,
 				9DCACB4F2B8A2E4D00163D93 /* NavigationController.swift in Sources */,
@@ -701,6 +728,7 @@
 				9DBBBA3C2B5EB6F100B70628 /* SceneDelegate.swift in Sources */,
 				9DCACB4C2B8A2C9200163D93 /* PresentationStyle.swift in Sources */,
 				9DB07CEB2B9D8D02003B6B45 /* SwiftUIWithViewModelView.swift in Sources */,
+				9D1BE9CB2BA5DCB200E33FE8 /* ViewModelSelectionViewModel.swift in Sources */,
 				9D1BE9912B9DD16C00E33FE8 /* UIKitWithoutViewModelViewComponent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
