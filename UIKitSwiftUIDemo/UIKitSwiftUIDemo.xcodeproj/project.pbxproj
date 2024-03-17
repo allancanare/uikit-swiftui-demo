@@ -21,6 +21,9 @@
 		9D1BE9C72BA5DC2800E33FE8 /* HomeSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1BE9C62BA5DC2800E33FE8 /* HomeSelectionViewModel.swift */; };
 		9D1BE9C92BA5DC8700E33FE8 /* FrameworkSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1BE9C82BA5DC8700E33FE8 /* FrameworkSelectionViewModel.swift */; };
 		9D1BE9CB2BA5DCB200E33FE8 /* ViewModelSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1BE9CA2BA5DCB200E33FE8 /* ViewModelSelectionViewModel.swift */; };
+		9D1BE9CF2BA68E6700E33FE8 /* NestedCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1BE9CE2BA68E6700E33FE8 /* NestedCoordinator.swift */; };
+		9D1BE9D22BA68E8500E33FE8 /* NestedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1BE9D12BA68E8500E33FE8 /* NestedView.swift */; };
+		9D1BE9D42BA68E8F00E33FE8 /* NestedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1BE9D32BA68E8F00E33FE8 /* NestedViewModel.swift */; };
 		9D4E867E2B8884CB00899F99 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4E867D2B8884CB00899F99 /* BaseCoordinator.swift */; };
 		9D4E86822B88863100899F99 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4E86812B88863100899F99 /* AppCoordinator.swift */; };
 		9DB07CC12B9C05E6003B6B45 /* ViewModelCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB07CC02B9C05E6003B6B45 /* ViewModelCoordinator.swift */; };
@@ -74,6 +77,9 @@
 		9D1BE9C62BA5DC2800E33FE8 /* HomeSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSelectionViewModel.swift; sourceTree = "<group>"; };
 		9D1BE9C82BA5DC8700E33FE8 /* FrameworkSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameworkSelectionViewModel.swift; sourceTree = "<group>"; };
 		9D1BE9CA2BA5DCB200E33FE8 /* ViewModelSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelSelectionViewModel.swift; sourceTree = "<group>"; };
+		9D1BE9CE2BA68E6700E33FE8 /* NestedCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedCoordinator.swift; sourceTree = "<group>"; };
+		9D1BE9D12BA68E8500E33FE8 /* NestedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedView.swift; sourceTree = "<group>"; };
+		9D1BE9D32BA68E8F00E33FE8 /* NestedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedViewModel.swift; sourceTree = "<group>"; };
 		9D4E867D2B8884CB00899F99 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		9D4E86812B88863100899F99 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		9DB07CC02B9C05E6003B6B45 /* ViewModelCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelCoordinator.swift; sourceTree = "<group>"; };
@@ -215,6 +221,24 @@
 			path = NavigationBar;
 			sourceTree = "<group>";
 		};
+		9D1BE9CD2BA68E4A00E33FE8 /* Nested */ = {
+			isa = PBXGroup;
+			children = (
+				9D1BE9CE2BA68E6700E33FE8 /* NestedCoordinator.swift */,
+				9D1BE9D02BA68E6C00E33FE8 /* Nested */,
+			);
+			path = Nested;
+			sourceTree = "<group>";
+		};
+		9D1BE9D02BA68E6C00E33FE8 /* Nested */ = {
+			isa = PBXGroup;
+			children = (
+				9D1BE9D12BA68E8500E33FE8 /* NestedView.swift */,
+				9D1BE9D32BA68E8F00E33FE8 /* NestedViewModel.swift */,
+			);
+			path = Nested;
+			sourceTree = "<group>";
+		};
 		9D4E86792B88845E00899F99 /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -259,6 +283,7 @@
 			children = (
 				9D1BE99A2B9F398200E33FE8 /* ExampleScreen */,
 				9DB07CD62B9C30C9003B6B45 /* Home */,
+				9D1BE9CD2BA68E4A00E33FE8 /* Nested */,
 				9D4E867B2B88848400899F99 /* Splash */,
 				9D4E86802B88861700899F99 /* SwiftUIKitInterop */,
 				9DB07CBF2B9C05D0003B6B45 /* ViewModel */,
@@ -704,8 +729,10 @@
 				9DCACB6B2B8B4A8900163D93 /* DefaultRegisterAppService.swift in Sources */,
 				9D1BE9A92BA5757700E33FE8 /* NavigationBarDataSource.swift in Sources */,
 				9DB07CC62B9C0922003B6B45 /* SolutionAViewModel.swift in Sources */,
+				9D1BE9D42BA68E8F00E33FE8 /* NestedViewModel.swift in Sources */,
 				9DB07CE22B9CA6BD003B6B45 /* FrameworkSelectionView.swift in Sources */,
 				9D1BE98F2B9DCD1C00E33FE8 /* UIKitWithoutViewModelView.swift in Sources */,
+				9D1BE9CF2BA68E6700E33FE8 /* NestedCoordinator.swift in Sources */,
 				9D1BE9A02BA323B200E33FE8 /* LoginView.swift in Sources */,
 				9D4E867E2B8884CB00899F99 /* BaseCoordinator.swift in Sources */,
 				9D1BE9932B9E051300E33FE8 /* BaseHostingController.swift in Sources */,
@@ -720,6 +747,7 @@
 				9DCACB652B8B17D400163D93 /* RegisterNetworkService.swift in Sources */,
 				9D1BE9C92BA5DC8700E33FE8 /* FrameworkSelectionViewModel.swift in Sources */,
 				9DB07CF02B9D9539003B6B45 /* UIViewController+Extras.swift in Sources */,
+				9D1BE9D22BA68E8500E33FE8 /* NestedView.swift in Sources */,
 				9DCACB3E2B88D1C200163D93 /* UIKitScreenViewController.swift in Sources */,
 				9DCACB4F2B8A2E4D00163D93 /* NavigationController.swift in Sources */,
 				9DB07CE72B9D82DC003B6B45 /* SwiftUIWithoutViewModelView.swift in Sources */,

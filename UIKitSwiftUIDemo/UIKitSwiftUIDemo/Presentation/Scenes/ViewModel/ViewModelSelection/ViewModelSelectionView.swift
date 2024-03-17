@@ -12,29 +12,20 @@ struct ViewModelSelectionView<ViewModel: ViewModelSelectionViewModelProtocol>: V
     
     var body: some View {
         List {
-            Section {
-                Button {
-                    viewModel.showSolutionA()
-                } label: {
-                    Text("Solution A")
-                }
-                Button {
-                    viewModel.showSolutionB()
-                } label: {
-                    Text("Solution B")
-                }
-                Button {
-                    viewModel.showSolutionC()
-                } label: {
-                    Text("Solution C")
-                }
+            Button {
+                viewModel.showSolutionA()
+            } label: {
+                Text("Solution A")
             }
-            Section {
-                Button {
-                    viewModel.showSwiftUIKitInterop()
-                } label: {
-                    Text("UIKit SwiftUI Interop")
-                }
+            Button {
+                viewModel.showSolutionB()
+            } label: {
+                Text("Solution B")
+            }
+            Button {
+                viewModel.showSolutionC()
+            } label: {
+                Text("Solution C")
             }
         }
     }

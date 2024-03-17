@@ -72,6 +72,12 @@ extension HomeCoordinator: HomeSelectionViewModelDelegate {
         coordinator.delegate = self
         coordinate(to: coordinator)
     }
+    
+    func homeSelectionViewModelWillShowNestedCoordinators(_ viewModel: any HomeSelectionViewModelProtocol) {
+        let coordinator = NestedCoordinator(presentationStyle: .present(navigationController))
+        coordinator.delegate = self
+        coordinate(to: coordinator)
+    }
 }
 
 // MARK: - ViewModelCoordinatorDelegate
@@ -94,6 +100,14 @@ extension HomeCoordinator: SwiftUIKitInteropCoordinatorDelegate {
 extension HomeCoordinator: ExampleScreenCoordinatorDelegate {
     func exampleScreenCoordinatorWillDismiss(_ coordinator: ExampleScreenCoordinator) {
         print("HomeCoordinator - remove ExampleScreenCoordinator")
+        remove(childCoordinator: coordinator)
+    }
+}
+
+// MARK: - NestedCoordinatorDelegate
+extension HomeCoordinator: NestedCoordinatorDelegate {
+    func nestedCoordinatorWillDismiss(_ coordinator: NestedCoordinator) {
+        print("HomeCoordinator - remove NestedCoordinator")
         remove(childCoordinator: coordinator)
     }
 }

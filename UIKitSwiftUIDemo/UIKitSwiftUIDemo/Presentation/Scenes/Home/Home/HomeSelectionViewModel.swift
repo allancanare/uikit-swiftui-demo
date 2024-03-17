@@ -12,12 +12,14 @@ protocol HomeSelectionViewModelDelegate: AnyObject {
     func homeSelectionViewModelWillShowViewModel(_ viewModel: any HomeSelectionViewModelProtocol)
     func homeSelectionViewModelWillShowSwiftUIKitInterop(_ viewModel: any HomeSelectionViewModelProtocol)
     func homeSelectionViewModelWillShowExampleScreen(_ viewModel: any HomeSelectionViewModelProtocol)
+    func homeSelectionViewModelWillShowNestedCoordinators(_ viewModel: any HomeSelectionViewModelProtocol)
 }
 
 protocol HomeSelectionViewModelProtocol: ObservableObject {
     func showViewModel()
     func showSwiftUIKitInterop()
     func showExampleScreen()
+    func showNestedCoordinators()
 }
 
 final class HomeSelectionViewModel {
@@ -45,6 +47,10 @@ extension HomeSelectionViewModel: HomeSelectionViewModelProtocol {
     
     func showExampleScreen() {
         delegate?.homeSelectionViewModelWillShowExampleScreen(self)
+    }
+    
+    func showNestedCoordinators() {
+        delegate?.homeSelectionViewModelWillShowNestedCoordinators(self)
     }
 }
 

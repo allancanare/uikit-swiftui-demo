@@ -27,6 +27,11 @@ struct HomeSelectionView<ViewModel: HomeSelectionViewModelProtocol>: View {
             } label: {
                 Text("Example Screens")
             }
+            Button {
+                viewModel.showNestedCoordinators()
+            } label: {
+                Text("Nested Coordinators")
+            }
         }
     }
 }

@@ -12,14 +12,12 @@ protocol ViewModelSelectionViewModelDelegate: AnyObject {
     func viewModelSelectionViewModelWillShowSolutionA(_ viewModel: any ViewModelSelectionViewModelProtocol)
     func viewModelSelectionViewModelWillShowSolutionB(_ viewModel: any ViewModelSelectionViewModelProtocol)
     func viewModelSelectionViewModelWillShowSolutionC(_ viewModel: any ViewModelSelectionViewModelProtocol)
-    func viewModelSelectionViewModelWillShowSwiftUIKitInterop(_ viewModel: any ViewModelSelectionViewModelProtocol)
 }
 
 protocol ViewModelSelectionViewModelProtocol: ObservableObject {
     func showSolutionA()
     func showSolutionB()
     func showSolutionC()
-    func showSwiftUIKitInterop()
 }
 
 final class ViewModelSelectionViewModel {
@@ -47,10 +45,6 @@ extension ViewModelSelectionViewModel: ViewModelSelectionViewModelProtocol {
     
     func showSolutionC() {
         delegate?.viewModelSelectionViewModelWillShowSolutionC(self)
-    }
-    
-    func showSwiftUIKitInterop() {
-        delegate?.viewModelSelectionViewModelWillShowSwiftUIKitInterop(self)
     }
 }
 

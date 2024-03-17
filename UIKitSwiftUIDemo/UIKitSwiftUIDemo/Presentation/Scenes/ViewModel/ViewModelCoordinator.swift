@@ -78,18 +78,4 @@ extension ViewModelCoordinator: ViewModelSelectionViewModelDelegate {
         navigationController.pushViewController(viewController,
                                                 animated: true)
     }
-    
-    func viewModelSelectionViewModelWillShowSwiftUIKitInterop(_ viewModel: any ViewModelSelectionViewModelProtocol) {
-        let coordinator = SwiftUIKitInteropCoordinator(presentationStyle: .present(navigationController))
-        coordinator.delegate = self
-        coordinate(to: coordinator)
-    }
-}
-
-// MARK: - SwiftUIKitInteropCoordinatorDelegate
-extension ViewModelCoordinator: SwiftUIKitInteropCoordinatorDelegate {
-    func swiftUIKitInteropCoordinatorWillDismiss(_ coordinator: SwiftUIKitInteropCoordinator) {
-        print("ViewModelCoordinator - remove SwiftUIKitInteropCoordinator")
-        remove(childCoordinator: coordinator)
-    }
 }
