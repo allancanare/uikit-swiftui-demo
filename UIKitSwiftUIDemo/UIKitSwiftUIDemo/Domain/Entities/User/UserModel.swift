@@ -7,8 +7,11 @@
 
 import Foundation
 
+typealias UserID = String
+
 struct UserModel {
+    let id: UserID
     let avatarURL: URL?
-    let email: String
     let name: String
+    let email: String
 }

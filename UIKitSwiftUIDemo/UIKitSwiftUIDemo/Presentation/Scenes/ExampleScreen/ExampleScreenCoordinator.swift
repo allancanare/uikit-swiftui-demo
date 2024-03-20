@@ -54,4 +54,23 @@ extension ExampleScreenCoordinator: LoginViewModelDelegate {
             self.delegate?.exampleScreenCoordinatorWillDismiss(self)
         }
     }
+    
+    func loginViewModelWillShowUserList(_ viewModel: any LoginViewModelProtocol) {
+        let navigationBarDataSource = NavigationBarDataSource()
+        let viewModel = UserListViewModel(navigationBarDataSource: navigationBarDataSource)
+        viewModel.delegate = self
+        navigationBarDataSource.delegate = viewModel
+        let view = UserListView(viewModel: viewModel)
+        let viewController = BaseHostingController(rootView: view)
+        viewController.navigationBarDataSource = navigationBarDataSource
+        navigationController.pushViewController(viewController,
+                                                animated: true)
+    }
+}
+
+// MARK: - UserListViewModelDelegate
+extension ExampleScreenCoordinator: UserListViewModelDelegate {
+    func userListViewModelWillClose(_ viewModel: any UserListViewModelProtocol) {
+        navigationController.popViewController(animated: true)
+    }
 }

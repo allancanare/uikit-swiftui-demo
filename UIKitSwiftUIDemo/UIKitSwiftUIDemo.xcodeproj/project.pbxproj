@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D09A5542BA9AA8D002C15A4 /* View+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D09A5532BA9AA8D002C15A4 /* View+Extras.swift */; };
 		9D1BE98F2B9DCD1C00E33FE8 /* UIKitWithoutViewModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1BE98E2B9DCD1C00E33FE8 /* UIKitWithoutViewModelView.swift */; };
 		9D1BE9912B9DD16C00E33FE8 /* UIKitWithoutViewModelViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1BE9902B9DD16C00E33FE8 /* UIKitWithoutViewModelViewComponent.swift */; };
 		9D1BE9932B9E051300E33FE8 /* BaseHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1BE9922B9E051300E33FE8 /* BaseHostingController.swift */; };
@@ -24,6 +25,8 @@
 		9D1BE9CF2BA68E6700E33FE8 /* NestedCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1BE9CE2BA68E6700E33FE8 /* NestedCoordinator.swift */; };
 		9D1BE9D22BA68E8500E33FE8 /* NestedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1BE9D12BA68E8500E33FE8 /* NestedView.swift */; };
 		9D1BE9D42BA68E8F00E33FE8 /* NestedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1BE9D32BA68E8F00E33FE8 /* NestedViewModel.swift */; };
+		9D1BE9E12BA6C82700E33FE8 /* UserItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1BE9E02BA6C82600E33FE8 /* UserItemView.swift */; };
+		9D1BE9E32BA6C83400E33FE8 /* UserItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1BE9E22BA6C83400E33FE8 /* UserItemViewModel.swift */; };
 		9D4E867E2B8884CB00899F99 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4E867D2B8884CB00899F99 /* BaseCoordinator.swift */; };
 		9D4E86822B88863100899F99 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4E86812B88863100899F99 /* AppCoordinator.swift */; };
 		9DB07CC12B9C05E6003B6B45 /* ViewModelCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB07CC02B9C05E6003B6B45 /* ViewModelCoordinator.swift */; };
@@ -63,6 +66,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9D09A5532BA9AA8D002C15A4 /* View+Extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extras.swift"; sourceTree = "<group>"; };
 		9D1BE98E2B9DCD1C00E33FE8 /* UIKitWithoutViewModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitWithoutViewModelView.swift; sourceTree = "<group>"; };
 		9D1BE9902B9DD16C00E33FE8 /* UIKitWithoutViewModelViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitWithoutViewModelViewComponent.swift; sourceTree = "<group>"; };
 		9D1BE9922B9E051300E33FE8 /* BaseHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseHostingController.swift; sourceTree = "<group>"; };
@@ -80,6 +84,8 @@
 		9D1BE9CE2BA68E6700E33FE8 /* NestedCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedCoordinator.swift; sourceTree = "<group>"; };
 		9D1BE9D12BA68E8500E33FE8 /* NestedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedView.swift; sourceTree = "<group>"; };
 		9D1BE9D32BA68E8F00E33FE8 /* NestedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedViewModel.swift; sourceTree = "<group>"; };
+		9D1BE9E02BA6C82600E33FE8 /* UserItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserItemView.swift; sourceTree = "<group>"; };
+		9D1BE9E22BA6C83400E33FE8 /* UserItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserItemViewModel.swift; sourceTree = "<group>"; };
 		9D4E867D2B8884CB00899F99 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		9D4E86812B88863100899F99 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		9DB07CC02B9C05E6003B6B45 /* ViewModelCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelCoordinator.swift; sourceTree = "<group>"; };
@@ -197,8 +203,7 @@
 		9D1BE99B2B9F3D0200E33FE8 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				9D1BE99F2BA323B200E33FE8 /* LoginView.swift */,
-				9D1BE9A12BA323C300E33FE8 /* LoginViewModel.swift */,
+				9D1BE9DD2BA6C7EC00E33FE8 /* Screen */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -206,8 +211,8 @@
 		9D1BE99E2B9F3D2200E33FE8 /* UserList */ = {
 			isa = PBXGroup;
 			children = (
-				9D1BE9A32BA325C300E33FE8 /* UserListView.swift */,
-				9D1BE9A52BA325CF00E33FE8 /* UserListViewModel.swift */,
+				9D1BE9DC2BA6C7DF00E33FE8 /* Screen */,
+				9D1BE9DE2BA6C7FA00E33FE8 /* Views */,
 			);
 			path = UserList;
 			sourceTree = "<group>";
@@ -237,6 +242,41 @@
 				9D1BE9D32BA68E8F00E33FE8 /* NestedViewModel.swift */,
 			);
 			path = Nested;
+			sourceTree = "<group>";
+		};
+		9D1BE9DC2BA6C7DF00E33FE8 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				9D1BE9A32BA325C300E33FE8 /* UserListView.swift */,
+				9D1BE9A52BA325CF00E33FE8 /* UserListViewModel.swift */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		9D1BE9DD2BA6C7EC00E33FE8 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				9D1BE99F2BA323B200E33FE8 /* LoginView.swift */,
+				9D1BE9A12BA323C300E33FE8 /* LoginViewModel.swift */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		9D1BE9DE2BA6C7FA00E33FE8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9D1BE9DF2BA6C80200E33FE8 /* UserItem */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9D1BE9DF2BA6C80200E33FE8 /* UserItem */ = {
+			isa = PBXGroup;
+			children = (
+				9D1BE9E02BA6C82600E33FE8 /* UserItemView.swift */,
+				9D1BE9E22BA6C83400E33FE8 /* UserItemViewModel.swift */,
+			);
+			path = UserItem;
 			sourceTree = "<group>";
 		};
 		9D4E86792B88845E00899F99 /* Application */ = {
@@ -408,6 +448,7 @@
 			children = (
 				9D1BE9AA2BA5823D00E33FE8 /* UINavigationController+Extras.swift */,
 				9DB07CEF2B9D9539003B6B45 /* UIViewController+Extras.swift */,
+				9D09A5532BA9AA8D002C15A4 /* View+Extras.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -437,7 +478,6 @@
 				9DCACB592B8B160D00163D93 /* Domain */,
 				9D4E867A2B88847500899F99 /* Presentation */,
 				9DCACB472B88DADF00163D93 /* Resources */,
-				9DBBBA422B5EB6F300B70628 /* Assets.xcassets */,
 				9DBBBA472B5EB6F300B70628 /* Info.plist */,
 			);
 			path = UIKitSwiftUIDemo;
@@ -456,6 +496,7 @@
 			isa = PBXGroup;
 			children = (
 				9DCACB482B88DAF000163D93 /* R.generated.swift */,
+				9DBBBA422B5EB6F300B70628 /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -723,6 +764,7 @@
 				9DCACB402B88D1CB00163D93 /* UIKitScreenViewModel.swift in Sources */,
 				9DCACB6E2B8B4B2B00163D93 /* DefaultRegisterNetworkService.swift in Sources */,
 				9D1BE9A42BA325C300E33FE8 /* UserListView.swift in Sources */,
+				9D1BE9E12BA6C82700E33FE8 /* UserItemView.swift in Sources */,
 				9DB07CED2B9D8D0E003B6B45 /* SwiftUIWithViewModelViewModel.swift in Sources */,
 				9DB07CCA2B9C0946003B6B45 /* SolutionBViewModel.swift in Sources */,
 				9D1BE9C72BA5DC2800E33FE8 /* HomeSelectionViewModel.swift in Sources */,
@@ -750,9 +792,11 @@
 				9D1BE9D22BA68E8500E33FE8 /* NestedView.swift in Sources */,
 				9DCACB3E2B88D1C200163D93 /* UIKitScreenViewController.swift in Sources */,
 				9DCACB4F2B8A2E4D00163D93 /* NavigationController.swift in Sources */,
+				9D1BE9E32BA6C83400E33FE8 /* UserItemViewModel.swift in Sources */,
 				9DB07CE72B9D82DC003B6B45 /* SwiftUIWithoutViewModelView.swift in Sources */,
 				9DB07CDB2B9C33B7003B6B45 /* HomeSelectionView.swift in Sources */,
 				9DB07CC12B9C05E6003B6B45 /* ViewModelCoordinator.swift in Sources */,
+				9D09A5542BA9AA8D002C15A4 /* View+Extras.swift in Sources */,
 				9DBBBA3C2B5EB6F100B70628 /* SceneDelegate.swift in Sources */,
 				9DCACB4C2B8A2C9200163D93 /* PresentationStyle.swift in Sources */,
 				9DB07CEB2B9D8D02003B6B45 /* SwiftUIWithViewModelView.swift in Sources */,
@@ -900,9 +944,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 3GMEZZUXYZ;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = UIKitSwiftUIDemo/Info.plist;
@@ -915,9 +961,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.allancanare.UIKitSwiftUIDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.allancanare.workfromcafe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match Development com.allancanare.workfromcafe";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -930,9 +977,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 3GMEZZUXYZ;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = UIKitSwiftUIDemo/Info.plist;
@@ -945,9 +994,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.allancanare.UIKitSwiftUIDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.allancanare.workfromcafe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match Development com.allancanare.workfromcafe";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -9,15 +9,22 @@ import UIKit
 
 protocol LoginViewModelDelegate: AnyObject {
     func loginViewModelWillClose(_ viewModel: any LoginViewModelProtocol)
+    func loginViewModelWillShowUserList(_ viewModel: any LoginViewModelProtocol)
 }
 
 protocol LoginViewModelProtocol: ObservableObject {
+    var username: String { get set }
+    var password: String { get set }
     
+    func login()
 }
 
 final class LoginViewModel {
     // MARK: Public Properties
     weak var delegate: LoginViewModelDelegate?
+    
+    @Published var username = ""
+    @Published var password = ""
     
     // MARK: Private Properties
     private let navigationBarDataSource: NavigationBarDataSource
@@ -29,7 +36,11 @@ final class LoginViewModel {
 }
 
 // MARK: - LoginViewModelProtocol
-extension LoginViewModel: LoginViewModelProtocol { }
+extension LoginViewModel: LoginViewModelProtocol {
+    func login() {
+        delegate?.loginViewModelWillShowUserList(self)
+    }
+}
 
 // MARK: - Private Functions
 private extension LoginViewModel {

@@ -15,9 +15,10 @@ extension DefaultRegisterNetworkService: RegisterNetworkService {
     func register(_ input: RegisterInput,
                   completionHandler: @escaping (Result<UserModel, Error>) -> Void) {
         DispatchQueue.global().asyncAfter(deadline: .now() + 1) {
-            completionHandler(.success(.init(avatarURL: nil,
-                                             email: input.email,
-                                             name: input.name)))
+            completionHandler(.success(.init(id: UUID().uuidString,
+                                             avatarURL: nil,
+                                             name: input.name,
+                                             email: input.email)))
         }
     }
 }
