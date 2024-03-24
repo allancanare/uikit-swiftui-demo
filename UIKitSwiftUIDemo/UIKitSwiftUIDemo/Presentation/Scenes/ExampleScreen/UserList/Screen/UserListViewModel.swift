@@ -7,41 +7,36 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
 protocol UserListViewModelDelegate: AnyObject {
     func userListViewModelWillClose(_ viewModel: any UserListViewModelProtocol)
 }
 
 protocol UserListViewModelProtocol: ObservableObject {
-    // Necessary to not use `[any UserItemViewModelProtocol]`
-    associatedtype ItemViewModelProtocol: UserItemViewModelProtocol
-    var users: [ItemViewModelProtocol] { get }
-    var items: [AnyUserItemViewModelProtocol<UserItemViewModel>] { get }
+    var items: [UserList.SectionType] { get }
 }
 
 final class UserListViewModel {
     // MARK: Public Properties
     weak var delegate: UserListViewModelDelegate?
-    
-    @Published var users = [UserItemViewModel]()
+    @Published var items = [UserList.SectionType]()
     
     // MARK: Private Properties
+    private var users = [UserItemViewModel]()
     private let navigationBarDataSource: NavigationBarDataSource
     private var currentItemCount = 0
-    private var countIncrement = 5
+    private var countIncrement = 1
     
     init(navigationBarDataSource: NavigationBarDataSource) {
         self.navigationBarDataSource = navigationBarDataSource
         generateNavigationBarData()
+        add()
     }
 }
 
 // MARK: - UserListViewModelProtocol
-extension UserListViewModel: UserListViewModelProtocol {
-    var items: [AnyUserItemViewModelProtocol<UserItemViewModel>] {
-        return []
-    }
-}
+extension UserListViewModel: UserListViewModelProtocol { }
 
 // MARK: - Private Functions
 private extension UserListViewModel {
@@ -87,12 +82,14 @@ private extension UserListViewModel {
         let viewModels = self.generateAndShuffle()
         Task { @MainActor in
             self.users = viewModels
+            self.generateSections(fromUsers: self.users)
         }
     }
     
     func shuffleExistingItems() {
         Task { @MainActor in
             self.users = self.users.shuffled()
+            self.generateSections(fromUsers: self.users)
         }
     }
     
@@ -102,16 +99,19 @@ private extension UserListViewModel {
         currentItemCount += countIncrement
         Task { @MainActor in
             self.users.append(contentsOf: itemsToAdd)
+            self.generateSections(fromUsers: self.users)
         }
     }
     
     func removeRandomItem() {
         guard let idx = (0 ..< users.count).randomElement() else { return }
         users.remove(at: idx)
+        generateSections(fromUsers: users)
     }
     
     func update() {
         users.randomElement()?.update()
+        generateSections(fromUsers: users)
     }
     
     func generateAndShuffle() -> [UserItemViewModel] {
@@ -128,6 +128,27 @@ private extension UserListViewModel {
                                                name: "User \(idx)",
                                                email: "user\(idx)@gmail.com"))
         }
+    }
+    
+    func generateSections(fromUsers users: [UserItemViewModel]) {
+        let userSectionHeader: ListData.HeaderType
+        userSectionHeader = .titleWithAction(.init(id: 1,
+                                                   icon: Image(systemName: "person.circle.fill"),
+                                                   title: "Users",
+                                                   action: nil))
+        
+        let groupSectionHeader: ListData.HeaderType
+        groupSectionHeader = .titleWithAction(.init(id: 2,
+                                                    icon: Image(systemName: "person.2.circle.fill"),
+                                                    title: "Groups",
+                                                    action: .init(icon: Image(systemName: "plus")) { [weak self] in
+            self?.add()
+        }))
+        
+        items = [.user(.init(headerType: userSectionHeader,
+                             rows: users.map { AnyUserItemViewModelProtocol(viewModel: $0) })),
+                 .group(.init(headerType: groupSectionHeader,
+                              rows: users.map { AnyUserItemViewModelProtocol(viewModel: $0) }))]
     }
 }
 

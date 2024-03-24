@@ -1,5 +1,5 @@
 //
-//  SectionHeader.swift
+//  ListData.swift
 //  UIKitSwiftUIDemo
 //
 //  Created by Allan Canare on 2024/03/20.
@@ -8,17 +8,18 @@
 import Foundation
 import SwiftUI
 
-enum SectionHeader { }
+enum ListData { }
 
-extension SectionHeader {
+extension ListData {
+    typealias SectionID = Int
+}
+
+extension ListData {
     enum HeaderType {
-        case title(TitleData)
         case titleWithAction(TitleWithActionData)
         
-        var id: SectionHeaderID {
+        var id: SectionID {
             switch self {
-            case .title(let titleData):
-                return titleData.id
             case .titleWithAction(let titleWithActionData):
                 return titleWithActionData.id
             }
@@ -26,25 +27,25 @@ extension SectionHeader {
     }
 }
 
-extension SectionHeader {
-    typealias SectionHeaderID = Int
-    
-    struct TitleData {
-        let id: SectionHeaderID
-        let title: String
-    }
-    
+extension ListData.HeaderType {
     struct TitleWithActionData {
-        let id: SectionHeaderID
+        let id: ListData.SectionID
         let icon: Image?
         let title: String
-        let action: ActionData
+        let action: ActionData?
     }
 }
 
-extension SectionHeader.TitleWithActionData {
+extension ListData.HeaderType.TitleWithActionData {
     struct ActionData {
         let icon: Image
         let action: () -> Void
+    }
+}
+
+extension ListData {
+    struct SectionData<AnyRowViewModelProtocol> {
+        let headerType: HeaderType
+        let rows: [AnyRowViewModelProtocol]
     }
 }
