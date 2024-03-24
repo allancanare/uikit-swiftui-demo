@@ -13,10 +13,10 @@ struct UserListView<ViewModel: UserListViewModelProtocol>: View {
     var body: some View {
         List(viewModel.users, id: \.id) { userViewModel in
             UserItemView(viewModel: userViewModel)
-            .listRowInsets(EdgeInsets())
-            .listRowSeparator(.hidden)
+                .listRowInsets(EdgeInsets())
+                .listRowSeparator(.hidden)
         }
-        .animation(.default)
+        .animation(.default, value: UUID())
         .listStyle(.plain)
         .padding(.horizontal, 8)
     }

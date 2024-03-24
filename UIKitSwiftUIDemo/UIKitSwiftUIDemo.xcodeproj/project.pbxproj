@@ -29,6 +29,9 @@
 		9D1BE9E32BA6C83400E33FE8 /* UserItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1BE9E22BA6C83400E33FE8 /* UserItemViewModel.swift */; };
 		9D4E867E2B8884CB00899F99 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4E867D2B8884CB00899F99 /* BaseCoordinator.swift */; };
 		9D4E86822B88863100899F99 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4E86812B88863100899F99 /* AppCoordinator.swift */; };
+		9D6DD1BD2BAB1CE800C8DD97 /* UserList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6DD1BC2BAB1CE800C8DD97 /* UserList.swift */; };
+		9D6DD1C02BAB1EE900C8DD97 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6DD1BF2BAB1EE900C8DD97 /* SectionHeader.swift */; };
+		9D6DD1C22BAC49D500C8DD97 /* AnyUserItemViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6DD1C12BAC49D500C8DD97 /* AnyUserItemViewModelProtocol.swift */; };
 		9DB07CC12B9C05E6003B6B45 /* ViewModelCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB07CC02B9C05E6003B6B45 /* ViewModelCoordinator.swift */; };
 		9DB07CC62B9C0922003B6B45 /* SolutionAViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB07CC52B9C0922003B6B45 /* SolutionAViewModel.swift */; };
 		9DB07CC82B9C092B003B6B45 /* SolutionAView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB07CC72B9C092B003B6B45 /* SolutionAView.swift */; };
@@ -62,6 +65,7 @@
 		9DCACB652B8B17D400163D93 /* RegisterNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCACB642B8B17D400163D93 /* RegisterNetworkService.swift */; };
 		9DCACB6B2B8B4A8900163D93 /* DefaultRegisterAppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCACB6A2B8B4A8900163D93 /* DefaultRegisterAppService.swift */; };
 		9DCACB6E2B8B4B2B00163D93 /* DefaultRegisterNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCACB6D2B8B4B2B00163D93 /* DefaultRegisterNetworkService.swift */; };
+		9DD4DB352BAFF7E5008DCED7 /* AtomicDS in Frameworks */ = {isa = PBXBuildFile; productRef = 9DD4DB342BAFF7E5008DCED7 /* AtomicDS */; };
 		D9F0A93B0E5E9C52D1CE9762 /* Pods_UIKitSwiftUIDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E39842B0C3F00D45E008C89C /* Pods_UIKitSwiftUIDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +92,9 @@
 		9D1BE9E22BA6C83400E33FE8 /* UserItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserItemViewModel.swift; sourceTree = "<group>"; };
 		9D4E867D2B8884CB00899F99 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		9D4E86812B88863100899F99 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		9D6DD1BC2BAB1CE800C8DD97 /* UserList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserList.swift; sourceTree = "<group>"; };
+		9D6DD1BF2BAB1EE900C8DD97 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
+		9D6DD1C12BAC49D500C8DD97 /* AnyUserItemViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyUserItemViewModelProtocol.swift; sourceTree = "<group>"; };
 		9DB07CC02B9C05E6003B6B45 /* ViewModelCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelCoordinator.swift; sourceTree = "<group>"; };
 		9DB07CC52B9C0922003B6B45 /* SolutionAViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolutionAViewModel.swift; sourceTree = "<group>"; };
 		9DB07CC72B9C092B003B6B45 /* SolutionAView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolutionAView.swift; sourceTree = "<group>"; };
@@ -133,6 +140,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DD4DB352BAFF7E5008DCED7 /* AtomicDS in Frameworks */,
 				D9F0A93B0E5E9C52D1CE9762 /* Pods_UIKitSwiftUIDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -211,6 +219,7 @@
 		9D1BE99E2B9F3D2200E33FE8 /* UserList */ = {
 			isa = PBXGroup;
 			children = (
+				9D6DD1BB2BAB1CD900C8DD97 /* Models */,
 				9D1BE9DC2BA6C7DF00E33FE8 /* Screen */,
 				9D1BE9DE2BA6C7FA00E33FE8 /* Views */,
 			);
@@ -275,6 +284,7 @@
 			children = (
 				9D1BE9E02BA6C82600E33FE8 /* UserItemView.swift */,
 				9D1BE9E22BA6C83400E33FE8 /* UserItemViewModel.swift */,
+				9D6DD1C12BAC49D500C8DD97 /* AnyUserItemViewModelProtocol.swift */,
 			);
 			path = UserItem;
 			sourceTree = "<group>";
@@ -340,6 +350,22 @@
 				9DCACB432B88D1DF00163D93 /* UIKitScreen */,
 			);
 			path = SwiftUIKitInterop;
+			sourceTree = "<group>";
+		};
+		9D6DD1BB2BAB1CD900C8DD97 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9D6DD1BC2BAB1CE800C8DD97 /* UserList.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9D6DD1BE2BAB1EC000C8DD97 /* SectionHeader */ = {
+			isa = PBXGroup;
+			children = (
+				9D6DD1BF2BAB1EE900C8DD97 /* SectionHeader.swift */,
+			);
+			path = SectionHeader;
 			sourceTree = "<group>";
 		};
 		9DB07CBF2B9C05D0003B6B45 /* ViewModel */ = {
@@ -506,6 +532,7 @@
 			children = (
 				9DCACB4B2B8A2C9200163D93 /* PresentationStyle.swift */,
 				9D1BE9A72BA5755F00E33FE8 /* NavigationBar */,
+				9D6DD1BE2BAB1EC000C8DD97 /* SectionHeader */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -631,8 +658,12 @@
 			buildRules = (
 			);
 			dependencies = (
+				9DD4DB372BAFF7F2008DCED7 /* PBXTargetDependency */,
 			);
 			name = UIKitSwiftUIDemo;
+			packageProductDependencies = (
+				9DD4DB342BAFF7E5008DCED7 /* AtomicDS */,
+			);
 			productName = UIKitSwiftUIDemo;
 			productReference = 9DBBBA362B5EB6F100B70628 /* UIKitSwiftUIDemo.app */;
 			productType = "com.apple.product-type.application";
@@ -661,6 +692,9 @@
 				Base,
 			);
 			mainGroup = 9DBBBA2D2B5EB6F100B70628;
+			packageReferences = (
+				9DD4DB332BAFF7E5008DCED7 /* XCRemoteSwiftPackageReference "AtomicDS" */,
+			);
 			productRefGroup = 9DBBBA372B5EB6F100B70628 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -777,10 +811,13 @@
 				9D1BE9CF2BA68E6700E33FE8 /* NestedCoordinator.swift in Sources */,
 				9D1BE9A02BA323B200E33FE8 /* LoginView.swift in Sources */,
 				9D4E867E2B8884CB00899F99 /* BaseCoordinator.swift in Sources */,
+				9D6DD1BD2BAB1CE800C8DD97 /* UserList.swift in Sources */,
 				9D1BE9932B9E051300E33FE8 /* BaseHostingController.swift in Sources */,
 				9DCACB5C2B8B16A100163D93 /* RegisterAppService.swift in Sources */,
 				9DB07CD82B9C31C5003B6B45 /* HomeCoordinator.swift in Sources */,
+				9D6DD1C22BAC49D500C8DD97 /* AnyUserItemViewModelProtocol.swift in Sources */,
 				9DB07CD02B9C0973003B6B45 /* SolutionCView.swift in Sources */,
+				9D6DD1C02BAB1EE900C8DD97 /* SectionHeader.swift in Sources */,
 				9DCACB602B8B172900163D93 /* UserModel.swift in Sources */,
 				9DCACB582B8A311800163D93 /* SwiftUIScreenViewModel.swift in Sources */,
 				9D1BE99D2B9F3D1300E33FE8 /* ExampleScreenCoordinator.swift in Sources */,
@@ -806,6 +843,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9DD4DB372BAFF7F2008DCED7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 9DD4DB362BAFF7F2008DCED7 /* AtomicDS */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		9DBBBA442B5EB6F300B70628 /* Splash.storyboard */ = {
@@ -1026,6 +1070,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9DD4DB332BAFF7E5008DCED7 /* XCRemoteSwiftPackageReference "AtomicDS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:allancanare/AtomicDS.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9DD4DB342BAFF7E5008DCED7 /* AtomicDS */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9DD4DB332BAFF7E5008DCED7 /* XCRemoteSwiftPackageReference "AtomicDS" */;
+			productName = AtomicDS;
+		};
+		9DD4DB362BAFF7F2008DCED7 /* AtomicDS */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9DD4DB332BAFF7E5008DCED7 /* XCRemoteSwiftPackageReference "AtomicDS" */;
+			productName = AtomicDS;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9DBBBA2E2B5EB6F100B70628 /* Project object */;
 }

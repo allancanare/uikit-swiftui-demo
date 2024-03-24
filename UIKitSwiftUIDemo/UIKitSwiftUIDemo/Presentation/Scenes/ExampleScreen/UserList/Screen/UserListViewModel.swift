@@ -16,6 +16,7 @@ protocol UserListViewModelProtocol: ObservableObject {
     // Necessary to not use `[any UserItemViewModelProtocol]`
     associatedtype ItemViewModelProtocol: UserItemViewModelProtocol
     var users: [ItemViewModelProtocol] { get }
+    var items: [AnyUserItemViewModelProtocol<UserItemViewModel>] { get }
 }
 
 final class UserListViewModel {
@@ -36,7 +37,11 @@ final class UserListViewModel {
 }
 
 // MARK: - UserListViewModelProtocol
-extension UserListViewModel: UserListViewModelProtocol { }
+extension UserListViewModel: UserListViewModelProtocol {
+    var items: [AnyUserItemViewModelProtocol<UserItemViewModel>] {
+        return []
+    }
+}
 
 // MARK: - Private Functions
 private extension UserListViewModel {
