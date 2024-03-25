@@ -1,10 +1,10 @@
 {
-  "originHash" : "a4741654d61cfdac7f11d4d3cc2608dc63dc576a2f6b483cf2d3aa4fd4f134dd",
+  "originHash" : "ea4a32c3d850bc90ad76231599a056e611dad9492a5982132d582c2dee5afefd",
   "pins" : [
     {
       "identity" : "atomicds",
       "kind" : "remoteSourceControl",
-      "location" : "git@github.com:allancanare/AtomicDS.git",
+      "location" : "https://github.com/allancanare/AtomicDS.git",
       "state" : {
         "branch" : "main",
         "revision" : "f467487a8c42c7f9efaa160e89c5922d324c659f"
