@@ -123,10 +123,10 @@ private extension UserListViewModel {
     func generateUsers(start: Int,
                        count: Int) -> [UserItemViewModel] {
         return (start...count).map { idx in
-            UserItemViewModel(userModel: .init(id: "\(idx)",
-                                               avatarURL: nil,
-                                               name: "User \(idx)",
-                                               email: "user\(idx)@gmail.com"))
+            return UserItemViewModel(userModel: .init(id: "\(idx)",
+                                                      avatarURL: URL(string: ["", "https://workfromcafe.app/assets/appicon.png"].randomElement()!),
+                                                      name: "User \(idx)",
+                                                      email: "user\(idx)@gmail.com"))
         }
     }
     
