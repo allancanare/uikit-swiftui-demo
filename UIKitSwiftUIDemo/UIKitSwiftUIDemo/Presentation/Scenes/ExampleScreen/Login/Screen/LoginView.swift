@@ -17,12 +17,13 @@ struct LoginView<ViewModel: LoginViewModelProtocol>: View {
                           text: $viewModel.username)
                 .textFieldStyle(.roundedBorder)
                 TextField("Password",
-                          text: $viewModel.username)
+                          text: $viewModel.password)
                 .textFieldStyle(.roundedBorder)
             }
             Button("Login") {
                 viewModel.login()
             }
+            .disabled(!viewModel.canLogin)
         }
         .padding(.horizontal, 24)
     }

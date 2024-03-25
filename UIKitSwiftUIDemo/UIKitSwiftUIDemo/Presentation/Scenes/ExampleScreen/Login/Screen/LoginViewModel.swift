@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 protocol LoginViewModelDelegate: AnyObject {
     func loginViewModelWillClose(_ viewModel: any LoginViewModelProtocol)
@@ -15,6 +16,7 @@ protocol LoginViewModelDelegate: AnyObject {
 protocol LoginViewModelProtocol: ObservableObject {
     var username: String { get set }
     var password: String { get set }
+    var canLogin: Bool { get }
     
     func login()
 }
@@ -25,13 +27,16 @@ final class LoginViewModel {
     
     @Published var username = ""
     @Published var password = ""
+    @Published var canLogin = false
     
     // MARK: Private Properties
     private let navigationBarDataSource: NavigationBarDataSource
+    private var cancellables = Set<AnyCancellable>()
     
     init(navigationBarDataSource: NavigationBarDataSource) {
         self.navigationBarDataSource = navigationBarDataSource
         generateNavigationBarData()
+        setupBindings()
     }
 }
 
@@ -45,12 +50,19 @@ extension LoginViewModel: LoginViewModelProtocol {
 // MARK: - Private Functions
 private extension LoginViewModel {
     func generateNavigationBarData() {
-        let closeButtonData = NavigationBar.ButtonType.ButtonData(icon: UIImage(systemName: "xmark")!) { [weak self] in
-            guard let self else { return }
-            self.delegate?.loginViewModelWillClose(self)
-        }
-        let closeButton = NavigationBar.ButtonType.button(closeButtonData)
-        navigationBarDataSource.setLeftBarButtons([closeButton])
+        navigationBarDataSource.setTitle("Login")
+    }
+    
+    func setupBindings() {
+        $username
+            .combineLatest($password)
+            .map {
+                return !$0.0.isEmpty && !$0.1.isEmpty
+            }
+            .sink(receiveValue: { [weak self] hasInput in
+                self?.canLogin = hasInput
+            })
+            .store(in: &cancellables)
     }
 }
 
