@@ -145,10 +145,26 @@ private extension UserListViewModel {
             self?.add()
         }))
         
+        let noteSectionHeader: ListData.HeaderType
+        noteSectionHeader = .titleWithAction(.init(id: 3,
+                                                   icon: Image(systemName: "note.text"),
+                                                   title: "Notes",
+                                                   action: nil))
+        
         items = [.user(.init(headerType: userSectionHeader,
                              rows: users.map { AnyUserItemViewModelProtocol(viewModel: $0) })),
                  .group(.init(headerType: groupSectionHeader,
-                              rows: users.map { AnyUserItemViewModelProtocol(viewModel: $0) }))]
+                              rows: users.map { AnyUserItemViewModelProtocol(viewModel: $0) })),
+                 .note(.init(headerType: noteSectionHeader,
+                             rows: generateNoteItemViewModel().map { AnyNoteItemViewModelProtocol(viewModel: $0) }))]
+    }
+    
+    func generateNoteItemViewModel() -> [NoteItemViewModel] {
+        return (1...5).map { idx in
+            NoteItemViewModel(noteModel: .init(id: "\(idx)",
+                                               title: "Title \(idx)",
+                                               content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tempor id eu nisl nunc mi ipsum faucibus vitae aliquet."))
+        }
     }
 }
 

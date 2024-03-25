@@ -39,6 +39,11 @@ struct UserListView<ViewModel: UserListViewModelProtocol>: View {
                     .listRowInsets(EdgeInsets())
                     .listRowSeparator(.hidden)
             }
+        case .note(let sectionData):
+            ForEach(sectionData.rows, id: \.viewModel.id) { noteViewModel in
+                NoteItemView(viewModel: noteViewModel.viewModel)
+                    .listRowSeparator(.hidden)
+            }
         }
     }
     
@@ -48,6 +53,8 @@ struct UserListView<ViewModel: UserListViewModelProtocol>: View {
         case .user(let sectionData):
             generateSectionHeader(fromHeaderType: sectionData.headerType)
         case .group(let sectionData):
+            generateSectionHeader(fromHeaderType: sectionData.headerType)
+        case .note(let sectionData):
             generateSectionHeader(fromHeaderType: sectionData.headerType)
         }
     }

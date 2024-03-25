@@ -61,8 +61,12 @@ struct UserItemView<ViewModel: UserItemViewModelProtocol>: View {
 }
 
 #Preview {
-    UserItemView(viewModel: UserItemViewModel(userModel: .init(id: UUID().uuidString, 
-                                                               avatarURL: nil,
-                                                               name: "Allan Canare",
-                                                               email: "me@allancanare.com")))
+    NavigationView {
+        List {
+            UserItemView(viewModel: UserItemViewModel(userModel: .init(id: UUID().uuidString,
+                                                                       avatarURL: nil,
+                                                                       name: "Allan Canare",
+                                                                       email: "me@allancanare.com")))
+        }
+    }
 }

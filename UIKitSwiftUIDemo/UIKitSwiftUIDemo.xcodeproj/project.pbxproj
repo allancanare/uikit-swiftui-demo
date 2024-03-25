@@ -66,6 +66,11 @@
 		9DCACB6B2B8B4A8900163D93 /* DefaultRegisterAppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCACB6A2B8B4A8900163D93 /* DefaultRegisterAppService.swift */; };
 		9DCACB6E2B8B4B2B00163D93 /* DefaultRegisterNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCACB6D2B8B4B2B00163D93 /* DefaultRegisterNetworkService.swift */; };
 		9DD4DB352BAFF7E5008DCED7 /* AtomicDS in Frameworks */ = {isa = PBXBuildFile; productRef = 9DD4DB342BAFF7E5008DCED7 /* AtomicDS */; };
+		9DD4DB3B2BB06858008DCED7 /* ExpandableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD4DB3A2BB06858008DCED7 /* ExpandableView.swift */; };
+		9DD4DB3E2BB0781E008DCED7 /* NoteItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD4DB3D2BB0781E008DCED7 /* NoteItemView.swift */; };
+		9DD4DB402BB0782B008DCED7 /* NoteItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD4DB3F2BB0782B008DCED7 /* NoteItemViewModel.swift */; };
+		9DD4DB422BB189E6008DCED7 /* AnyNoteItemViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD4DB412BB189E6008DCED7 /* AnyNoteItemViewModelProtocol.swift */; };
+		9DD4DB452BB18B64008DCED7 /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD4DB442BB18B64008DCED7 /* NoteModel.swift */; };
 		D9F0A93B0E5E9C52D1CE9762 /* Pods_UIKitSwiftUIDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E39842B0C3F00D45E008C89C /* Pods_UIKitSwiftUIDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -130,6 +135,11 @@
 		9DCACB642B8B17D400163D93 /* RegisterNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNetworkService.swift; sourceTree = "<group>"; };
 		9DCACB6A2B8B4A8900163D93 /* DefaultRegisterAppService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultRegisterAppService.swift; sourceTree = "<group>"; };
 		9DCACB6D2B8B4B2B00163D93 /* DefaultRegisterNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultRegisterNetworkService.swift; sourceTree = "<group>"; };
+		9DD4DB3A2BB06858008DCED7 /* ExpandableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableView.swift; sourceTree = "<group>"; };
+		9DD4DB3D2BB0781E008DCED7 /* NoteItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteItemView.swift; sourceTree = "<group>"; };
+		9DD4DB3F2BB0782B008DCED7 /* NoteItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteItemViewModel.swift; sourceTree = "<group>"; };
+		9DD4DB412BB189E6008DCED7 /* AnyNoteItemViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyNoteItemViewModelProtocol.swift; sourceTree = "<group>"; };
+		9DD4DB442BB18B64008DCED7 /* NoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
 		E39842B0C3F00D45E008C89C /* Pods_UIKitSwiftUIDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UIKitSwiftUIDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E43BA59138FE0C59F8578AF4 /* Pods-UIKitSwiftUIDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UIKitSwiftUIDemo.debug.xcconfig"; path = "Target Support Files/Pods-UIKitSwiftUIDemo/Pods-UIKitSwiftUIDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		ECA3FCAF9DCFA26A87322A6D /* Pods-UIKitSwiftUIDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UIKitSwiftUIDemo.release.xcconfig"; path = "Target Support Files/Pods-UIKitSwiftUIDemo/Pods-UIKitSwiftUIDemo.release.xcconfig"; sourceTree = "<group>"; };
@@ -274,6 +284,8 @@
 		9D1BE9DE2BA6C7FA00E33FE8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9DD4DB3A2BB06858008DCED7 /* ExpandableView.swift */,
+				9DD4DB3C2BB07802008DCED7 /* NoteItem */,
 				9D1BE9DF2BA6C80200E33FE8 /* UserItem */,
 			);
 			path = Views;
@@ -594,6 +606,7 @@
 		9DCACB5D2B8B170F00163D93 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				9DD4DB432BB18B58008DCED7 /* Note */,
 				9DCACB682B8B185D00163D93 /* User */,
 			);
 			path = Entities;
@@ -639,6 +652,24 @@
 				9DCACB6D2B8B4B2B00163D93 /* DefaultRegisterNetworkService.swift */,
 			);
 			path = Register;
+			sourceTree = "<group>";
+		};
+		9DD4DB3C2BB07802008DCED7 /* NoteItem */ = {
+			isa = PBXGroup;
+			children = (
+				9DD4DB3D2BB0781E008DCED7 /* NoteItemView.swift */,
+				9DD4DB3F2BB0782B008DCED7 /* NoteItemViewModel.swift */,
+				9DD4DB412BB189E6008DCED7 /* AnyNoteItemViewModelProtocol.swift */,
+			);
+			path = NoteItem;
+			sourceTree = "<group>";
+		};
+		9DD4DB432BB18B58008DCED7 /* Note */ = {
+			isa = PBXGroup;
+			children = (
+				9DD4DB442BB18B64008DCED7 /* NoteModel.swift */,
+			);
+			path = Note;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -797,6 +828,7 @@
 				9D1BE9A22BA323C300E33FE8 /* LoginViewModel.swift in Sources */,
 				9DCACB402B88D1CB00163D93 /* UIKitScreenViewModel.swift in Sources */,
 				9DCACB6E2B8B4B2B00163D93 /* DefaultRegisterNetworkService.swift in Sources */,
+				9DD4DB422BB189E6008DCED7 /* AnyNoteItemViewModelProtocol.swift in Sources */,
 				9D1BE9A42BA325C300E33FE8 /* UserListView.swift in Sources */,
 				9D1BE9E12BA6C82700E33FE8 /* UserItemView.swift in Sources */,
 				9DB07CED2B9D8D0E003B6B45 /* SwiftUIWithViewModelViewModel.swift in Sources */,
@@ -808,7 +840,9 @@
 				9D1BE9D42BA68E8F00E33FE8 /* NestedViewModel.swift in Sources */,
 				9DB07CE22B9CA6BD003B6B45 /* FrameworkSelectionView.swift in Sources */,
 				9D1BE98F2B9DCD1C00E33FE8 /* UIKitWithoutViewModelView.swift in Sources */,
+				9DD4DB452BB18B64008DCED7 /* NoteModel.swift in Sources */,
 				9D1BE9CF2BA68E6700E33FE8 /* NestedCoordinator.swift in Sources */,
+				9DD4DB402BB0782B008DCED7 /* NoteItemViewModel.swift in Sources */,
 				9D1BE9A02BA323B200E33FE8 /* LoginView.swift in Sources */,
 				9D4E867E2B8884CB00899F99 /* BaseCoordinator.swift in Sources */,
 				9D6DD1BD2BAB1CE800C8DD97 /* UserList.swift in Sources */,
@@ -825,6 +859,7 @@
 				9DB07CCC2B9C0953003B6B45 /* SolutionBView.swift in Sources */,
 				9DCACB652B8B17D400163D93 /* RegisterNetworkService.swift in Sources */,
 				9D1BE9C92BA5DC8700E33FE8 /* FrameworkSelectionViewModel.swift in Sources */,
+				9DD4DB3E2BB0781E008DCED7 /* NoteItemView.swift in Sources */,
 				9DB07CF02B9D9539003B6B45 /* UIViewController+Extras.swift in Sources */,
 				9D1BE9D22BA68E8500E33FE8 /* NestedView.swift in Sources */,
 				9DCACB3E2B88D1C200163D93 /* UIKitScreenViewController.swift in Sources */,
@@ -832,6 +867,7 @@
 				9D1BE9E32BA6C83400E33FE8 /* UserItemViewModel.swift in Sources */,
 				9DB07CE72B9D82DC003B6B45 /* SwiftUIWithoutViewModelView.swift in Sources */,
 				9DB07CDB2B9C33B7003B6B45 /* HomeSelectionView.swift in Sources */,
+				9DD4DB3B2BB06858008DCED7 /* ExpandableView.swift in Sources */,
 				9DB07CC12B9C05E6003B6B45 /* ViewModelCoordinator.swift in Sources */,
 				9D09A5542BA9AA8D002C15A4 /* View+Extras.swift in Sources */,
 				9DBBBA3C2B5EB6F100B70628 /* SceneDelegate.swift in Sources */,
