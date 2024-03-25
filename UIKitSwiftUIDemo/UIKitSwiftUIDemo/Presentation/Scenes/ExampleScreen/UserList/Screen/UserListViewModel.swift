@@ -73,7 +73,7 @@ private extension UserListViewModel {
             self?.removeRandomItem()
         }
         
-        let menuData = NavigationBar.ButtonType.MenuData.init(icon: UIImage(systemName: "square.and.arrow.up")!,
+        let menuData = NavigationBar.ButtonType.MenuData.init(icon: UIImage(systemName: "ellipsis")!,
                                                               items: [update, shuffle, shuffleExistingItems, add, remove])
         navigationBarDataSource.setRightBarButtons([.menu(menuData)])
     }
