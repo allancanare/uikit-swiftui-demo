@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import AtomicDS
 
 enum ListData { }
 
@@ -30,7 +31,7 @@ extension ListData {
 extension ListData.HeaderType {
     struct TitleWithActionData {
         let id: ListData.SectionID
-        let icon: Image?
+        let icon: Icon?
         let title: String
         let action: ActionData?
     }
@@ -38,7 +39,7 @@ extension ListData.HeaderType {
 
 extension ListData.HeaderType.TitleWithActionData {
     struct ActionData {
-        let icon: Image
+        let icon: Icon
         let action: () -> Void
     }
 }

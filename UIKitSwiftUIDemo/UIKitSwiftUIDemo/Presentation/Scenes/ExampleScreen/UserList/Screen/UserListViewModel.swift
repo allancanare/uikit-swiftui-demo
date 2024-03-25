@@ -132,29 +132,21 @@ private extension UserListViewModel {
     
     func generateSections(fromUsers users: [UserItemViewModel]) {
         let userSectionHeader: ListData.HeaderType
-        userSectionHeader = .titleWithAction(.init(id: 1,
-                                                   icon: Image(systemName: "person.circle.fill"),
+        userSectionHeader = .titleWithAction(.init(id: 2,
+                                                   icon: .profile,
                                                    title: "Users",
-                                                   action: nil))
-        
-        let groupSectionHeader: ListData.HeaderType
-        groupSectionHeader = .titleWithAction(.init(id: 2,
-                                                    icon: Image(systemName: "person.2.circle.fill"),
-                                                    title: "Groups",
-                                                    action: .init(icon: Image(systemName: "plus")) { [weak self] in
-            self?.add()
-        }))
+                                                   action: .init(icon: .add) { [weak self] in
+           self?.add()
+       }))
         
         let noteSectionHeader: ListData.HeaderType
         noteSectionHeader = .titleWithAction(.init(id: 3,
-                                                   icon: Image(systemName: "note.text"),
+                                                   icon: .create,
                                                    title: "Notes",
                                                    action: nil))
         
         items = [.user(.init(headerType: userSectionHeader,
                              rows: users.map { AnyUserItemViewModelProtocol(viewModel: $0) })),
-                 .group(.init(headerType: groupSectionHeader,
-                              rows: users.map { AnyUserItemViewModelProtocol(viewModel: $0) })),
                  .note(.init(headerType: noteSectionHeader,
                              rows: generateNoteItemViewModel().map { AnyNoteItemViewModelProtocol(viewModel: $0) }))]
     }
@@ -162,7 +154,7 @@ private extension UserListViewModel {
     func generateNoteItemViewModel() -> [NoteItemViewModel] {
         return (1...5).map { idx in
             NoteItemViewModel(noteModel: .init(id: "\(idx)",
-                                               title: "Title \(idx)",
+                                               title: "Note \(idx)",
                                                content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tempor id eu nisl nunc mi ipsum faucibus vitae aliquet."))
         }
     }

@@ -71,6 +71,7 @@
 		9DD4DB422BB189E6008DCED7 /* AnyNoteItemViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD4DB412BB189E6008DCED7 /* AnyNoteItemViewModelProtocol.swift */; };
 		9DD4DB452BB18B64008DCED7 /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD4DB442BB18B64008DCED7 /* NoteModel.swift */; };
 		9DD4DB4B2BB1950D008DCED7 /* AtomicDS in Frameworks */ = {isa = PBXBuildFile; productRef = 9DD4DB4A2BB1950D008DCED7 /* AtomicDS */; };
+		9DD4DB6D2BB1B935008DCED7 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD4DB6C2BB1B935008DCED7 /* SectionHeaderView.swift */; };
 		D9F0A93B0E5E9C52D1CE9762 /* Pods_UIKitSwiftUIDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E39842B0C3F00D45E008C89C /* Pods_UIKitSwiftUIDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -140,6 +141,7 @@
 		9DD4DB3F2BB0782B008DCED7 /* NoteItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteItemViewModel.swift; sourceTree = "<group>"; };
 		9DD4DB412BB189E6008DCED7 /* AnyNoteItemViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyNoteItemViewModelProtocol.swift; sourceTree = "<group>"; };
 		9DD4DB442BB18B64008DCED7 /* NoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
+		9DD4DB6C2BB1B935008DCED7 /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		E39842B0C3F00D45E008C89C /* Pods_UIKitSwiftUIDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UIKitSwiftUIDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E43BA59138FE0C59F8578AF4 /* Pods-UIKitSwiftUIDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UIKitSwiftUIDemo.debug.xcconfig"; path = "Target Support Files/Pods-UIKitSwiftUIDemo/Pods-UIKitSwiftUIDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		ECA3FCAF9DCFA26A87322A6D /* Pods-UIKitSwiftUIDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UIKitSwiftUIDemo.release.xcconfig"; path = "Target Support Files/Pods-UIKitSwiftUIDemo/Pods-UIKitSwiftUIDemo.release.xcconfig"; sourceTree = "<group>"; };
@@ -285,6 +287,7 @@
 			isa = PBXGroup;
 			children = (
 				9DD4DB3A2BB06858008DCED7 /* ExpandableView.swift */,
+				9DD4DB6C2BB1B935008DCED7 /* SectionHeaderView.swift */,
 				9DD4DB3C2BB07802008DCED7 /* NoteItem */,
 				9D1BE9DF2BA6C80200E33FE8 /* UserItem */,
 			);
@@ -873,6 +876,7 @@
 				9DBBBA3C2B5EB6F100B70628 /* SceneDelegate.swift in Sources */,
 				9DCACB4C2B8A2C9200163D93 /* PresentationStyle.swift in Sources */,
 				9DB07CEB2B9D8D02003B6B45 /* SwiftUIWithViewModelView.swift in Sources */,
+				9DD4DB6D2BB1B935008DCED7 /* SectionHeaderView.swift in Sources */,
 				9D1BE9CB2BA5DCB200E33FE8 /* ViewModelSelectionViewModel.swift in Sources */,
 				9D1BE9912B9DD16C00E33FE8 /* UIKitWithoutViewModelViewComponent.swift in Sources */,
 			);

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AtomicDS
 
 struct ExpandableView<HeaderView: View, ContentView: View>: View {
     var header: HeaderView
@@ -20,41 +21,46 @@ struct ExpandableView<HeaderView: View, ContentView: View>: View {
     }
     
     var body: some View {
-        VStack(alignment: .leading) {
-            HStack {
-                header
-                Spacer()
-                arrow
-                    .padding(.leading, 8)
-            }
-            .contentShape(Rectangle())
-            .onTapGesture {
-                isContentVisible.toggle()
-            }
-            .padding()
-
+        VStack(alignment: .leading,
+               spacing: 0) {
+            headerView
             if isContentVisible {
-                Divider()
-                content
-                    .padding()
+                contentView
             }
         }
-        .cornerRadius(12)
+        .cornerRadius(.init(borderRadius: .medium))
         .overlay {
-            RoundedRectangle(cornerRadius: 12)
-                .stroke(.gray,
-                        lineWidth: 1)
+            RoundedRectangle(cornerRadius: .init(borderRadius: .medium))
+                .stroke(AtomicDS.Color.lightGrayDarkest.value,
+                        lineWidth: .init(borderWidth: .small))
         }
         .animation(.default, value: isContentVisible)
     }
     
+    var headerView: some View {
+        HStack {
+            header
+            Spacer()
+            arrow
+                .padding(.leading, .init(spacing: .small))
+        }
+        .padding()
+        .contentShape(Rectangle())
+        .onTapGesture {
+            isContentVisible.toggle()
+        }
+    }
+    
     @ViewBuilder
+    var contentView: some View {
+        Divider()
+        content
+            .padding()
+    }
+    
     var arrow: some View {
-        Image(systemName: isContentVisible ? "chevron.up" : "chevron.down")
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-            .frame(width: 12, height: 12)
-            .contentTransition(.symbolEffect(.replace))
+        IconView(isContentVisible ? .arrowUp : .arrowDown,
+                 style: .smallDarkGrayLightest)
     }
 }
 

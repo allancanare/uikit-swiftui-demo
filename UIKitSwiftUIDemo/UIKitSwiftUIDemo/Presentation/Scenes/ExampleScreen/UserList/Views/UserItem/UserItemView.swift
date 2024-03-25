@@ -6,55 +6,33 @@
 //
 
 import SwiftUI
+import AtomicDS
 
 struct UserItemView<ViewModel: UserItemViewModelProtocol>: View {
     @ObservedObject var viewModel: ViewModel
     
     var body: some View {
         HStack(alignment: .center,
-               spacing: 16) {
+               spacing: .init(spacing: .large)) {
             avatar
             labels
         }
-       .padding(.all, 16)
+       .padding(.all, .init(spacing: .large))
     }
     
     var avatar: some View {
-        AsyncImage(url: viewModel.avatarURL) { phase in
-            switch phase {
-            case .success(let image):
-                image
-                    .resizable()
-            default:
-                placeholder
-            }
-        }
-        .frame(width: 40, height: 40)
-        .clipShape(RoundedRectangle(cornerRadius: 16))
-    }
-    
-    var placeholder: some View {
-        ZStack {
-            Color.gray
-            VStack {
-                Spacer()
-                Image(systemName: "person.fill")
-                    .resizable()
-                    .renderingMode(.template)
-                    .foregroundColor(.black)
-                    .frame(width: 32, height: 32)
-            }
-        }
+        AvatarView(url: viewModel.avatarURL,
+                   style: .medium)
     }
     
     var labels: some View {
         VStack(alignment: .leading,
-               spacing: 2) {
-            Text(viewModel.name)
-                .font(.title3)
+               spacing: .init(spacing: .extraSmall)) {
+            TextView(viewModel.name,
+                     style: .headingExtraSmallDarkGrayDarkest)
             if let email = viewModel.email {
-                Text(email)
-                    .font(.caption)
+                TextView(email,
+                         style: .bodySmallDarkGrayLight)
             }
         }
     }

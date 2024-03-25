@@ -6,15 +6,18 @@
 //
 
 import SwiftUI
+import AtomicDS
 
 struct NoteItemView<ViewModel: NoteItemViewModelProtocol>: View {
     @ObservedObject var viewModel: ViewModel
     
     var body: some View {
         ExpandableView {
-            Text(viewModel.title)
+            TextView(viewModel.title,
+                     style: .bodyMediumDarkGrayDarkest)
         } content: {
-            Text(viewModel.content)
+            TextView(viewModel.content,
+                     style: .bodySmallDarkGrayLight)
         }
     }
 }

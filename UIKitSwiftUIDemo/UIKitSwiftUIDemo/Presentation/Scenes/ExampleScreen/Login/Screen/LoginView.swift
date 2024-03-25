@@ -6,26 +6,38 @@
 //
 
 import SwiftUI
+import AtomicDS
 
 struct LoginView<ViewModel: LoginViewModelProtocol>: View {
     @ObservedObject var viewModel: ViewModel
-    @State private var animationsRunning = true
+    
     var body: some View {
-        VStack(spacing: 32) {
-            VStack(spacing: 8) {
-                TextField("Username",
-                          text: $viewModel.username)
-                .textFieldStyle(.roundedBorder)
-                TextField("Password",
-                          text: $viewModel.password)
-                .textFieldStyle(.roundedBorder)
-            }
-            Button("Login") {
-                viewModel.login()
-            }
-            .disabled(!viewModel.canLogin)
+        VStack(spacing: .init(spacing: .extraExtraLarge)) {
+            inputFields
+            loginButton
         }
-        .padding(.horizontal, 24)
+        .padding(.horizontal, .init(spacing: .extraExtraLarge))
+    }
+    
+    var inputFields: some View {
+        VStack(spacing: .init(spacing: .small)) {
+            AtomicDS.TextField(input: $viewModel.username,
+                               placeholder: "Username",
+                               style: .normal)
+            AtomicDS.TextField(input: $viewModel.password,
+                               placeholder: "Password",
+                               style: .normal)
+        }
+    }
+    
+    var loginButton: some View {
+        AtomicDS.Button(leftIcon: .apple,
+                        title: "Login",
+                        style: .primary) {
+            viewModel.login()
+        }
+        .disabled(!viewModel.canLogin)
+        .fixedSize(horizontal: false, vertical: true)
     }
 }
 

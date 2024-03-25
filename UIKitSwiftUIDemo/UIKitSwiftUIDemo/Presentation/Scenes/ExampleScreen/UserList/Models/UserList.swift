@@ -13,14 +13,11 @@ enum UserList { }
 extension UserList {
     enum SectionType {
         case user(ListData.SectionData<AnyUserItemViewModelProtocol<UserItemViewModel>>)
-        case group(ListData.SectionData<AnyUserItemViewModelProtocol<UserItemViewModel>>)
         case note(ListData.SectionData<AnyNoteItemViewModelProtocol<NoteItemViewModel>>)
         
         var id: ListData.SectionID {
             switch self {
             case .user(let sectionData):
-                return sectionData.headerType.id
-            case .group(let sectionData):
                 return sectionData.headerType.id
             case .note(let sectionData):
                 return sectionData.headerType.id

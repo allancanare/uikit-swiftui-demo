@@ -21,19 +21,13 @@ struct UserListView<ViewModel: UserListViewModelProtocol>: View {
             }
         }
         .animation(.default, value: UUID())
-        .listStyle(.grouped)
+        .listStyle(.plain)
     }
     
     @ViewBuilder
     func generateSectionRows(fromSectionType sectionType: UserList.SectionType) -> some View {
         switch sectionType {
         case .user(let sectionData):
-            ForEach(sectionData.rows, id: \.viewModel.id) { userViewModel in
-                UserItemView(viewModel: userViewModel.viewModel)
-                    .listRowInsets(EdgeInsets())
-                    .listRowSeparator(.hidden)
-            }
-        case .group(let sectionData):
             ForEach(sectionData.rows, id: \.viewModel.id) { userViewModel in
                 UserItemView(viewModel: userViewModel.viewModel)
                     .listRowInsets(EdgeInsets())
@@ -52,8 +46,6 @@ struct UserListView<ViewModel: UserListViewModelProtocol>: View {
         switch sectionType {
         case .user(let sectionData):
             generateSectionHeader(fromHeaderType: sectionData.headerType)
-        case .group(let sectionData):
-            generateSectionHeader(fromHeaderType: sectionData.headerType)
         case .note(let sectionData):
             generateSectionHeader(fromHeaderType: sectionData.headerType)
         }
@@ -63,37 +55,8 @@ struct UserListView<ViewModel: UserListViewModelProtocol>: View {
     func generateSectionHeader(fromHeaderType headerType: ListData.HeaderType) -> some View {
         switch headerType {
         case .titleWithAction(let titleWithActionData):
-            generateTitleWithActionHeader(fromTitleWithActionData: titleWithActionData)
+            SectionHeaderView(titleWithActionData: titleWithActionData)
         }
-    }
-    
-    func generateTitleWithActionHeader(fromTitleWithActionData titleWithActionData: ListData.HeaderType.TitleWithActionData) -> some View {
-        HStack {
-            if let icon = titleWithActionData.icon {
-                view(fromIcon: icon)
-            }
-            Text(titleWithActionData.title)
-            Spacer()
-            if let actionData = titleWithActionData.action {
-                view(fromActionData: actionData)
-            }
-        }
-    }
-    
-    func view(fromIcon icon: Image) -> some View {
-        icon
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-            .frame(width: 24, height: 24)
-    }
-    
-    func view(fromActionData actionData: ListData.HeaderType.TitleWithActionData.ActionData) -> some View {
-        actionData.icon
-             .resizable()
-             .frame(width: 24, height: 24)
-             .onTapGesture {
-                 actionData.action()
-             }
     }
 }
 
