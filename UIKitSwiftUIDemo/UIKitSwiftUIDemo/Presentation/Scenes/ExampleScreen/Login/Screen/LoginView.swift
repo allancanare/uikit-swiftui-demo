@@ -26,6 +26,7 @@ struct LoginView<ViewModel: LoginViewModelProtocol>: View {
                                style: .normal)
             AtomicDS.TextField(input: $viewModel.password,
                                placeholder: "Password",
+                               isSecure: true,
                                style: .normal)
         }
     }
