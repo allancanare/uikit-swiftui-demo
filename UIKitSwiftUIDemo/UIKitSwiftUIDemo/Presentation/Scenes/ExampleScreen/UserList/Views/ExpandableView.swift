@@ -60,7 +60,8 @@ struct ExpandableView<HeaderView: View, ContentView: View>: View {
     
     var arrow: some View {
         IconView(isContentVisible ? .arrowUp : .arrowDown,
-                 style: .smallDarkGrayLightest)
+                 color: .darkGrayLightest,
+                 style: .small)
     }
 }
 

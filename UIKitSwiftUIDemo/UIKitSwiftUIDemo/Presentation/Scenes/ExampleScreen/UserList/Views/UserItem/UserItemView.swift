@@ -29,10 +29,12 @@ struct UserItemView<ViewModel: UserItemViewModelProtocol>: View {
         VStack(alignment: .leading,
                spacing: .init(spacing: .extraSmall)) {
             TextView(viewModel.name,
-                     style: .headingExtraSmallDarkGrayDarkest)
+                     color: .darkGrayDarkest,
+                     style: .headingExtraSmall)
             if let email = viewModel.email {
                 TextView(email,
-                         style: .bodySmallDarkGrayLight)
+                         color: .darkGrayLight,
+                         style: .bodySmall)
             }
         }
     }

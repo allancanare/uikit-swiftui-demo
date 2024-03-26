@@ -14,10 +14,12 @@ struct NoteItemView<ViewModel: NoteItemViewModelProtocol>: View {
     var body: some View {
         ExpandableView {
             TextView(viewModel.title,
-                     style: .bodyMediumDarkGrayDarkest)
+                     color: .darkGrayDarkest,
+                     style: .bodyMedium)
         } content: {
             TextView(viewModel.content,
-                     style: .bodySmallDarkGrayLight)
+                     color: .darkGrayLight,
+                     style: .bodySmall)
         }
     }
 }

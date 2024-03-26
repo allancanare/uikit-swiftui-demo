@@ -15,14 +15,17 @@ struct SectionHeaderView: View {
         HStack(spacing: .init(spacing: .small)) {
             if let icon = titleWithActionData.icon {
                 IconView(icon,
-                         style: .mediumDarkGrayDarkest)
+                         color: .darkGrayDarkest,
+                         style: .medium)
             }
             TextView(titleWithActionData.title,
-                     style: .headingSmallDarkGrayDarkest)
+                     color: .darkGrayDarkest,
+                     style: .headingSmall)
             Spacer()
             if let actionData = titleWithActionData.action {
                 IconView(actionData.icon,
-                         style: .mediumHighlightDarkest)
+                         color: .highlightDarkest,
+                         style: .medium)
                      .onTapGesture {
                          actionData.action()
                      }
